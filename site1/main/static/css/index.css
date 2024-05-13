@@ -1,0 +1,95 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #fed3f4;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 40px;
+}
+
+.logo img {
+  height: 40px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li:last-child {
+  margin-right: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+
+/* Search */
+.search {
+  display: flex;
+  align-items: center;
+}
+
+.search input {
+  padding: 8px;
+  border: none;
+  border-bottom: 2px solid #A566B0;
+  border-radius: 0;
+  background-color: transparent;
+  font-size: 14px;
+}
+
+.search input:focus {
+  outline: none;
+  border-bottom: 2px solid #A566B0;
+}
+
+.search-button {
+  padding: 8px;
+  border: none;
+  background-color: transparent;
+}
+
+.search-button:hover {
+  background-color: #A566B0;
+}
+
+.search-button img {
+  width: 20px;
+  height: 20px;
+}
+
+/* Appointment */
+.appointment {
+  display: flex;
+  align-items: center;
+}
+
+.appointment a {
+  text-decoration: none;
+  color: #A566B0;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: 2px solid #CA8CCD;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  margin: 0 70px; /* Добавляем отступы справа и слева */
+}
+
+.appointment a:hover {
+  background-color: #CA8CCD;
+  color: white;
+}
