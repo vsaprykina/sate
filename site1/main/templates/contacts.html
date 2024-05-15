@@ -1,0 +1,74 @@
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/contacts.css' %}">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Главная</a></li>
+                <li><a href="{% url 'services' %}">Услуги</a></li>
+                <li><a href="{% url 'contacts' %}">Контакты</a></li>
+                <li><a href="{% url 'about' %}">Обо мне</a></li>
+            </ul>
+        </nav>
+        <div class="search">
+            <input type="search" placeholder="Поиск...">
+            <button type="submit" class="search-button"><img src="{% static 'img/поиск.png' %}" alt="Поиск"></button>
+        </div>
+        <div class="appointment">
+            <a href="{% url 'services' %}#appointment-form" class="button">Записаться на приём</a>
+        </div>
+    </header>
+
+    <section class="contacts-section">
+        <div class="contacts-info">
+            <h2>Контакты</h2>
+            <div class="highlight-line"></div>
+            <p class="contact-address">+7(908)506-86-97</p>
+            <p class="contact-email">shapovalova.ale@yandex.ru</p>
+            <p class="contact-location">г.Новочеркасск, р-н Молодежный, ул.Речная 38</p>
+        </div>
+<div class="container">
+    <h2 class="title">Оставьте свой отзыв</h2>
+    <div class="highlight-line"></div>
+    <div class="content">
+        <form action="{% url 'contacts' %}" method="POST" class="review-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="fullname">ФИО:</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Введите email" required class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="message">Отзыв:</label>
+                <textarea id="message" name="message" placeholder="Введите ваш отзыв" class="form-control"></textarea>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" id="agree" name="agree" required class="form-check-input">
+                <label for="agree" class="form-check-label">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
+            </div>
+            <button type="submit" class="btn btn-primary">Отправить</button>
+        </form>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="success-message">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</div>
+    </section>
+</body>
+</html>
