@@ -49,7 +49,8 @@
         </div>
         <div class="articles">
             <div class="article">
-                <a href="{% url 'article1' %}"><img src="{% static 'img/статья1.jpg' %}" alt="Название статьи 1"></a>
+                <a href="{% url 'article1' %}">
+                    <img src="{% static 'img/статья1.jpg' %}" alt="Название статьи 1"></a>
                 <div class="caption">В каких еще случаях поможет логопедический зондовый массаж?</div>
             </div>
             <div class="article">
@@ -57,14 +58,14 @@
                 <div class="caption">Возрастные нормы развития речи</div>
             </div>
        <div class="article">
-    <a href="{% url 'article_detail' pk=3 %}">
+    <a href="{% url 'article3' %}">
         <img src="{% static 'img/статья3.jpg' %}" alt="Название статьи 3">
     </a>
     <div class="caption">Речь ребенка в 3 года: нормы и отклонения</div>
 </div>
 
 <div class="article">
-    <a href="{% url 'article_detail' pk=4 %}">
+    <a href="{% url 'article4'  %}">
         <img src="{% static 'img/статья4.jpg' %}" alt="Название статьи 4">
     </a>
     <div class="caption">Рекомендации по проведению домашнего речевого занятия — консультация для родителей</div>
@@ -72,42 +73,42 @@
         </div>
         <div class="hiddenArticles">
             <div class="article">
-    <a href="{% url 'article_detail' pk=5 %}">
+    <a href="{% url 'article5'  %}">
         <img src="{% static 'img/статья5.jpg' %}" alt="Название статьи 5">
     </a>
     <div class="caption">На что необходимо обратить внимание родителям детей первого года жизни</div>
 </div>
 
 <div class="article">
-    <a href="{% url 'article_detail' pk=6 %}">
+    <a href="{% url 'article6' %}">
         <img src="{% static 'img/статья61.jpg' %}" alt="Название статьи 6">
     </a>
     <div class="caption">Закрепляем звуки дома — советы логопеда родителям</div>
 </div>
 
 <div class="article">
-    <a href="{% url 'article_detail' pk=7 %}">
+    <a href="{% url 'article7' %}">
         <img src="{% static 'img/статья7.jpeg' %}" alt="Название статьи 7">
     </a>
     <div class="caption">Профилактика истерик</div>
 </div>
 
 <div class="article">
-    <a href="{% url 'article_detail' pk=8 %}">
+    <a href="{% url 'article8' %}">
         <img src="{% static 'img/статья8.jpeg' %}" alt="Название статьи 8">
     </a>
     <div class="caption">Тейпирование в работе логопеда</div>
 </div>
 
 <div class="article">
-    <a href="{% url 'article_detail' pk=9 %}">
+    <a href="{% url 'article9' %}">
         <img src="{% static 'img/статья9.png' %}" alt="Название статьи 9">
     </a>
     <div class="caption">Нетрадиционные приемы по автоматизации звуков</div>
 </div>
 
 <div class="article">
-    <a href="{% url 'article_detail' pk=10 %}">
+    <a href="{% url 'article10' %}">
         <img src="{% static 'img/статья10.jpg' %}" alt="Название статьи 10">
     </a>
     <div class="caption">Значимость артикуляционной, дыхательной и пальчиковой гимнастик в речевом развитии детей дошкольного возраста</div>
@@ -250,12 +251,13 @@
 <section class="centered-section">
   <h2>Задайте свой вопрос</h2>
   <div class="underline"></div>
-  <form class="contact-form" action="submit.php" method="post">
+  <form class="contact-form" action="{% url 'index_question' %}" method="post">
+    {% csrf_token %}
     <div class="form-group">
       <input type="text" id="full-name" name="full-name" placeholder="Введите ФИО" required>
     </div>
     <div class="form-group">
-      <input type="tel" id="phone" name="phone" placeholder="Введите номер телефона" required>
+      <input type="email" id="email" name="email" placeholder="Введите email" required>
     </div>
     <div class="form-group">
       <textarea id="message" name="message" placeholder="Введите ваше сообщение" required></textarea>
