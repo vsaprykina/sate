@@ -17,8 +17,13 @@ urlpatterns = [
     path('article8/', views.article8, name='article8'),
     path('article9/', views.article9, name='article9'),
     path('article10/', views.article10, name='article10'),
-    path('article/<int:pk>/', views.article_detail, name='article_detail'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('appointment/submit/', views.appointment_submit, name='appointment_submit'),
+    path('admin/services/', views.ServiceListView.as_view(), name='admin_service_list'),
+    path('admin/services/add/', views.ServiceCreateView.as_view(), name='admin_service_add'),
+    path('admin/services/<int:pk>/', views.ServiceUpdateView.as_view(), name='admin_service_change'),
+    path('admin/services/<int:pk>/delete/', views.ServiceDeleteView.as_view(), name='admin_service_delete'),
 ]
+
+
 

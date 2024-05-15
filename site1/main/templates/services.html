@@ -1,12 +1,11 @@
 {% load static %}
 
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Услуги</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/ysligu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/services.css' %}">
 </head>
 <body>
   <header>
@@ -31,79 +30,27 @@
 </header>
 
 <section class="services">
-  <div class="services-header">
-    <h2>Услуги</h2>
-    <div class="underline"></div>
-  </div>
-  <div class="services-container">
-    <div class="service-card">
-      <div class="service-image">
-        <img src="{% static 'img/услуга 1.jpg' %}" alt="Постановка, автоматизация, дифференциация звуков">
-      </div>
-      <div class="service-info">
-        <h3>Постановка, автоматизация, дифференциация звуков</h3>
-        <p>Продолжительность: 40 минут</p>
-        <p>Стоимость: 500 рублей</p>
-        <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-      </div>
+    <div class="services-header">
+      <h2>Услуги</h2>
+      <div class="underline"></div>
     </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="{% static 'img/услуга 2.jpg' %}" alt="Артикуляционная гимнастика">
+    <div class="services-container">
+      {% for service in services %}
+      <div class="service-card">
+        <div class="service-image">
+          <img src="{{ service.image.url }}" alt="{{ service.title }}">
+        </div>
+        <div class="service-info">
+          <h3>{{ service.title }}</h3>
+          <p>{{ service.description }}</p>
+          <p>Продолжительность: {{ service.duration }}</p>
+          <p>Стоимость: {{ service.price }} рублей</p>
+          <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
+        </div>
       </div>
-      <div class="service-info">
-        <h3>Артикуляционная гимнастика</h3>
-        <p>Продолжительность: 40 минут</p>
-        <p>Стоимость: 500 рублей</p>
-        <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-      </div>
+      {% endfor %}
     </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="{% static 'img/услуга 3.jpg' %}" alt="Логопедический массаж">
-      </div>
-      <div class="service-info">
-        <h3>Логопедический массаж</h3>
-        <p>Продолжительность: 40 минут</p>
-        <p>Стоимость: 500 рублей</p>
-        <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="{% static 'img/статья8.jpeg' %}" alt="Логопедическое тейпирование">
-      </div>
-      <div class="service-info">
-        <h3>Логопедическое тейпирование</h3>
-        <p>Продолжительность: 40 минут</p>
-        <p>Стоимость: 500 рублей</p>
-        <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="{% static 'img/статья3.jpg' %}" alt="Развитие внимания, памяти и мышления">
-      </div>
-      <div class="service-info">
-        <h3>Развитие внимания, памяти и мышления</h3>
-        <p>Продолжительность: 40 минут</p>
-        <p>Стоимость: 500 рублей</p>
-        <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-      </div>
-    </div>
-    <div class="service-card">
-      <div class="service-image">
-        <img src="{% static 'img/статья4.jpg' %}" alt="Бесплатная консультация">
-      </div>
-      <div class="service-info">
-        <h3>Бесплатная консультация</h3>
-        <p>Продолжительность: 40 минут</p>
-        <p>Стоимость: 0 рублей</p>
-        <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
 
 <section class="appointment-section">
   <h2 class="section-title">Форма записи на прием</h2>
@@ -111,7 +58,7 @@
   <form id="appointment-form" class="appointment-form" method="POST" action="{% url 'appointment_submit' %}">
       {% csrf_token %}
       <input type="text" id="fullName" name="fullName" placeholder="Введите ФИО" pattern="[A-Za-zА-Яа-яЁё\s]+" title="Введите только буквы" required>
-      <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Введите номер телефона" pattern="[0-9]+" title="Введите только цифры" required>
+        <input type="email" id="email" name="email" placeholder="Введите email" required>
       <input type="date" id="appointmentDate" name="appointmentDate" required>
 
       <!-- Добавлено поле выбора времени -->
@@ -153,6 +100,13 @@
       </div>
       <button type="submit">Записаться</button>
   </form>
+    {% if messages %}
+      <ul class="messages">
+          {% for message in messages %}
+              <li>{{ message }}</li>
+          {% endfor %}
+      </ul>
+  {% endif %}
 </section>
 
 <footer>
