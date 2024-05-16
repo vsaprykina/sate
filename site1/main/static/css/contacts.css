@@ -37,38 +37,6 @@ nav ul li a {
   font-size: 16px;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-}
-
-.search input {
-  padding: 8px;
-  border: none;
-  border-bottom: 2px solid #CA8CCD;
-  border-radius: 0;
-  background-color: transparent;
-  font-size: 14px;
-}
-
-.search input:focus {
-  outline: none;
-  border-bottom: 2px solid #A566B0;
-}
-
-.search-button {
-  padding: 8px;
-  border: none;
-  background-color: transparent;
-
-}
-.search-button:hover {
-  background-color: #A566B0;
-}
-.search-button img {
-  width: 20px;
-  height: 20px;
-}
 
 .appointment {
   display: flex;
