@@ -1,6 +1,6 @@
 {% load static %}
 
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +11,9 @@
 <body>
     <header>
         <div class="logo">
-            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+            </a>
         </div>
         <nav>
             <ul>
@@ -21,16 +23,12 @@
                 <li><a href="{% url 'about' %}">Обо мне</a></li>
             </ul>
         </nav>
-        <div class="search">
-            <input type="search" placeholder="Поиск...">
-            <button type="submit" class="search-button"><img src="{% static 'img/поиск.png' %}" alt="Поиск"></button>
-        </div>
         <div class="appointment">
             <a href="{% url 'services' %}#appointment-form" class="button">Записаться на приём</a>
         </div>
     </header>
 
-    <section class="contacts-section">
+    <section class="contacts-section" style="background-image: url('{% static 'img/фон.PNG' %}');">
         <div class="contacts-info">
             <h2>Контакты</h2>
             <div class="highlight-line"></div>
@@ -38,37 +36,84 @@
             <p class="contact-email">shapovalova.ale@yandex.ru</p>
             <p class="contact-location">г.Новочеркасск, р-н Молодежный, ул.Речная 38</p>
         </div>
-<div class="container">
-    <h2 class="title">Оставьте свой отзыв</h2>
-    <div class="highlight-line"></div>
-    <div class="content">
-        <form action="{% url 'contacts' %}" method="POST" class="review-form">
-            {% csrf_token %}
-            <div class="form-group">
-                <label for="fullname">ФИО:</label>
-                <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО" class="form-control">
+        <div class="map-container">
+            <div style="position:relative;overflow:hidden;">
+                <a href="https://yandex.ru/maps/11033/bataysk/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Батайск</a>
+                <a href="https://yandex.ru/maps/11033/bataysk/house/rechnaya_ulitsa_38/Z0AYcQFmT0ICQFptfX11d3lhbA==/?ll=39.767405%2C47.146713&utm_medium=mapframe&utm_source=maps&z=18.46" style="color:#eee;font-size:12px;position:absolute;top:14px;">Речная улица, 38 — Яндекс Карты</a>
+                <iframe src="https://yandex.ru/map-widget/v1/?ll=39.767405%2C47.146713&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgoxNTkyMTA4NDA1El7QoNC-0YHRgdC40Y8sINCg0L7RgdGC0L7QstGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCDQkdCw0YLQsNC50YHQuiwg0KDQtdGH0L3QsNGPINGD0LvQuNGG0LAsIDM4IgoNEhEfQhUMljxC&z=18.46" width="100%" height="100%" frameborder="1" allowfullscreen="true" style="position:relative;"></iframe>
             </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Введите email" required class="form-control">
-            </div>
-            <div class="form-group">
-                <label for="message">Отзыв:</label>
-                <textarea id="message" name="message" placeholder="Введите ваш отзыв" class="form-control"></textarea>
-            </div>
-            <div class="form-group form-check">
-                <input type="checkbox" id="agree" name="agree" required class="form-check-input">
-                <label for="agree" class="form-check-label">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
-            </div>
-            <button type="submit" class="btn btn-primary">Отправить</button>
-        </form>
-        {% if messages %}
-            {% for message in messages %}
-                <div class="success-message">{{ message }}</div>
-            {% endfor %}
-        {% endif %}
-    </div>
-</div>
+        </div>
     </section>
+
+    <section class="reviews" style="background-image: url('{% static 'img/фон3.PNG' %}');">
+        <div class="title1">
+            <h2>Отзывы</h2>
+            <hr class="underline">
+        </div>
+        <div class="container2">
+            <div class="review">
+                <div class="user">Иван Иванов</div>
+                <div class="message">Отличный специалист! Благодаря его помощи мой ребенок значительно улучшил свою речь. Рекомендую!</div>
+            </div>
+            <div class="review">
+            <div class="user">Мария Петрова</div>
+            <div class="message">Очень профессиональный подход к работе. Благодаря логопеду достигли заметных результатов.</div>
+        </div>
+        <div class="review">
+            <div class="user">Андрей Сидоров</div>
+            <div class="message">Спасибо за терпение и внимание к деталям. Результаты превзошли ожидания!</div>
+        </div>
+        <div class="review">
+            <div class="user">Марина Кузьменко</div>
+            <div class="message">Большое спасибо нашему логопеду за проделанную работу с ребенком. Действительно грамотный специалист в этой сфере. По итогу получили очень хорошие результаты и откоректировали существующие проблемы.</div>
+        </div>
+        <div class="review">
+            <div class="user">Виктория Семенова</div>
+            <div class="message">Елена Николаевна, спасибо вам большое за занятия с Сашей. Ей было очень интересно и она с удовольствием посещает ваши занятия! Почти с первого занятия у нее уже получилось выговаривать шипящие! Спасибо за труд, теперь она хорошо проговаривает звуки и готова к школе!</div>
+        </div>
+        <div class="review">
+            <div class="user">Валерия Швец</div>
+            <div class="message">Спасибо вам большое за успехи сына! Вы умеете находить подход к деткам и заинтересовать их! Очень вам благодарна.</div>
+        </div>
+        <div class="review">
+            <div class="user">Валентина Грись</div>
+            <div class="message">Отличный педагог!!! Легко нашла общий язык с моим сыном, на занятия ходят с удовольствием. За пару месяцев занятий ребенок стал чисто и красиво проговаривать все звуки.</div>
+        </div>
+        <div class="review">
+            <div class="user">Екатерина Бессмертная</div>
+            <div class="message">Сын посещает занятия у логопеда Елены, очень высококвалифицированный специалист, тот прогресс, которого она достигла с моим сыном, это что-то невероятное, мы продолжаем к ней ходить, я думаю, что именно она сможет сделать так, чтобы до школы мой ребенок заговорил нормально.</div>
+        </div>
+        <div class="review">
+            <div class="user">Анастасия Зинченко</div>
+            <div class="message">После долгих поисков мы наконец нашли замечательного логопеда! Мы обратились к Елене с проблемой недоразвития речи у нашего ребенка, и не могли быть счастливее результатом. Елена демонстрирует высокий профессионализм и заботу к каждому своему пациенту. Она внимательно выслушала наши опасения и разработала индивидуальную программу коррекции речи для нашего ребенка. Благодаря её креативному подходу и эмпатии, мы видим заметные улучшения в речи нашего ребенка уже через несколько недель. Мы безмерно благодарны Елене за её профессионализм, терпение и поддержку!</div>
+        </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-column">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+            </a>
+        </div>
+        <div class="footer-column">
+            <h3>Контакты</h3>
+            <p>+7(908)506-86-97</p>
+            <p>shapovalova.ale@yandex.ru</p>
+            <p>г.Новочеркасск, р-н Молодежный, Речная 38</p>
+        </div>
+        <div class="footer-column">
+            <h3>Режим работы</h3>
+            <p>с 10:00 до 19:00 (пн-Сб)</p>
+        </div>
+        <div class="footer-column">
+            <h3>Мои соц. сети</h3>
+            <div class="social-icons">
+                <a href="https://vk.com/id461825566"><img src="{% static 'img/vk.png' %}" alt="Vk"></a>
+                <a href="https://wa.me/79085068697"><img src="{% static 'img/wats.png' %}" alt="Whatsapp"></a>
+                <a href="https://t.me/Alenahapovalova"><img src="{% static 'img/tg.png' %}" alt="Telegram"></a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
