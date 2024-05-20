@@ -1,5 +1,7 @@
 from django.urls import path
-from . import views
+from main import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -7,23 +9,16 @@ urlpatterns = [
     path('contacts/', views.contacts, name='contacts'),
     path('about/', views.about, name='about'),
     path('appointment/', views.appointment, name='appointment'),
-    path('article1/', views.article1, name='article1'),
-    path('article2/', views.article2, name='article2'),
-    path('article3/', views.article3, name='article3'),
-    path('article4/', views.article4, name='article4'),
-    path('article5/', views.article5, name='article5'),
-    path('article6/', views.article6, name='article6'),
-    path('article7/', views.article7, name='article7'),
-    path('article8/', views.article8, name='article8'),
-    path('article9/', views.article9, name='article9'),
-    path('article10/', views.article10, name='article10'),
-    path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
     path('appointment/submit/', views.appointment_submit, name='appointment_submit'),
     path('admin/services/', views.ServiceListView.as_view(), name='admin_service_list'),
     path('admin/services/add/', views.ServiceCreateView.as_view(), name='admin_service_add'),
     path('admin/services/<int:pk>/', views.ServiceUpdateView.as_view(), name='admin_service_change'),
     path('admin/services/<int:pk>/delete/', views.ServiceDeleteView.as_view(), name='admin_service_delete'),
-]
-
-
-
+    path('appointment/available-times/<str:appointment_date>/', views.appointment_available_times, name='appointment_available_times'),
+    path('appointment/submit/', views.appointment_submit, name='appointment_submit'),
+    path('contacts/', views.contact_page, name='contacts'),
+    path('article/<int:pk>/', views.article_detail, name='article_detail'),
+    path('privacy-policy/', views.privacy_policy_view, name='privacy_policy'),
+    path('index-question/', views.index_question_view, name='index_question'),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
+  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

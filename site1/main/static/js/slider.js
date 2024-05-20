@@ -1,3 +1,16 @@
+// Получаем кнопки "Prev" и "Next"
+let prevButton = document.querySelector('.prev');
+let nextButton = document.querySelector('.next');
+
+// Добавляем обработчики событий
+prevButton.addEventListener('click', () => {
+  plusSlides(-1);
+});
+
+nextButton.addEventListener('click', () => {
+  plusSlides(1);
+});
+
 let slideIndex = 0;
 showSlides();
 
@@ -17,6 +30,6 @@ function showSlides() {
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
   }
-
+  
   slides[slideIndex].style.display = "block";
 }

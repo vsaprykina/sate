@@ -2,18 +2,73 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.core.mail import send_mail
 from django.conf import settings
-from .models import Service, Appointment, Article
+from .models import Service, Appointment
 from .forms import ContactForm, AppointmentForm
 from django.contrib.admin.views.decorators import staff_member_required
 from django.utils.decorators import method_decorator
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.http import JsonResponse
+from datetime import datetime
+from .models import Question
+from django.shortcuts import render, get_object_or_404
+from .models import Article
+from .models import Testimonial
+
+def contact_page(request):
+    return render(request, 'contacts.html')
 
 def index(request):
+    if request.method == 'POST':
+        full_name = request.POST.get('full-name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        agree = request.POST.get('agree')
+
+        if agree:
+            Question.objects.create(
+                full_name=full_name,
+                email=email,
+                message=message
+            )
+            return redirect('index')
     return render(request, 'index.html')
+
+def index_question_view(request):
+    if request.method == 'POST':
+        full_name = request.POST.get('full-name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+        agree = request.POST.get('agree')
+
+        # Валидация полей
+        if not full_name.isalpha() or len(full_name.split()) < 2:
+            messages.error(request, 'Пожалуйста, введите корректное ФИО.')
+            return redirect('index')
+        if not email or '@' not in email:
+            messages.error(request, 'Пожалуйста, введите корректный email.')
+            return redirect('index')
+        if not message or len(message) < 10:
+            messages.error(request, 'Пожалуйста, введите сообщение длиной не менее 10 символов.')
+            return redirect('index')
+        if not agree:
+            messages.error(request, 'Вы должны согласиться с политикой конфиденциальности.')
+            return redirect('index')
+
+        # Отправка email
+        subject = 'Новое сообщение с сайта'
+        body = f'Имя: {full_name}\nEmail: {email}\nСообщение: {message}'
+        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [settings.ADMIN_EMAIL], fail_silently=False)
+
+        messages.success(request, 'Спасибо за обращение! Мы скоро вам ответим.')
+        return redirect('index')
+
+    return redirect('index')
+
 
 def services(request):
     services = Service.objects.all()
     appointment_form = AppointmentForm()
+    available_times = ['10:00', '10:40', '11:20', '12:00', '12:40', '13:20', '14:00', '14:40', '15:20', '16:00', '16:40', '17:20', '18:00']
 
     if request.method == 'POST':
         appointment_form = AppointmentForm(request.POST)
@@ -27,7 +82,7 @@ def services(request):
             messages.success(request, 'Ваша заявка успешно отправлена.')
             return redirect('services')
 
-    return render(request, 'services.html', {'services': services, 'appointment_form': appointment_form})
+    return render(request, 'services.html', {'services': services, 'appointment_form': appointment_form, 'available_times': available_times})
 
 @method_decorator(staff_member_required, name='dispatch')
 class ServiceListView(ListView):
@@ -67,45 +122,72 @@ def contacts(request):
 
 def about(request):
     return render(request, 'about.html')
-def article1(request):
-    return render(request, 'article1.html')
 
-def article2(request):
-    return render(request, 'article2.html')
-
-def article3(request):
-    return render(request, 'article3.html')
-
-def article4(request):
-    return render(request, 'article4.html')
-
-def article5(request):
-    return render(request, 'article5.html')
-
-def article6(request):
-    return render(request, 'article6.html')
-
-def article7(request):
-    return render(request, 'article7.html')
-
-def article8(request):
-    return render(request, 'article8.html')
-
-def article9(request):
-    return render(request, 'article9.html')
-def article10(request):
-    return render(request, 'article10.html')
-def privacy_policy(request):
+def privacy_policy_view(request):
     return render(request, 'privacy_policy.html')
+
+def appointment_available_times(request, appointment_date):
+    approved_appointments = Appointment.objects.filter(appointment_date=appointment_date, approved=True)
+    available_times = ['10:00', '10:40', '11:20', '12:00', '12:40', '13:20', '14:00', '14:40', '15:20', '16:00', '16:40', '17:20', '18:00']
+    for appointment in approved_appointments:
+        available_times.remove(appointment.appointment_time.strftime('%H:%M'))
+    return JsonResponse(available_times, safe=False)
+
 def appointment_submit(request):
     if request.method == 'POST':
-        form = AppointmentForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Ваша заявка успешно отправлена.')
+        full_name = request.POST.get('fullName')
+        email = request.POST.get('email')
+        appointment_date = request.POST.get('appointmentDate')
+        appointment_time = request.POST.get('appointmentTime')
+        service = request.POST.get('service')
+
+        # Check if the selected time is available
+        approved_appointments = Appointment.objects.filter(appointment_date=appointment_date, appointment_time=appointment_time, approved=True)
+        if approved_appointments.exists():
+            messages.error(request, 'Извините, это время уже занято. Пожалуйста, выберите другое время.')
             return redirect('services')
-        else:
-            messages.error(request, 'Ошибка в отправке заявки. Пожалуйста, попробуйте снова.')
-            return redirect('services')
-    else:
-        return redirect('services')
+
+        appointment = Appointment(
+            full_name=full_name,
+            email=email,
+            appointment_date=appointment_date,
+            appointment_time=appointment_time,
+            service=service,
+            approved=True
+        )
+        appointment.save()
+        messages.success(request, 'Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.')
+    return redirect('services')
+
+
+
+def home_page(request):
+    featured_articles = Article.objects.filter(is_featured=True)[:4]
+    other_articles = Article.objects.filter(is_featured=False)
+    return render(request, 'index.html', {
+        'featured_articles': featured_articles,
+        'other_articles': other_articles,
+    })
+
+def article_detail(request, pk):
+    article = get_object_or_404(Article, pk=pk)
+    return render(request, 'article_detail.html', {
+        'article': article,
+    })
+
+
+
+
+
+
+def index(request):
+    featured_articles = Article.objects.filter(is_featured=True)[:4]
+    other_articles = Article.objects.filter(is_featured=False)
+    all_articles = Article.objects.all()
+    testimonials = Testimonial.objects.all()
+    return render(request, 'index.html', {
+        'featured_articles': featured_articles,
+        'other_articles': other_articles,
+        'all_articles': all_articles,
+        'testimonials': testimonials,
+    })

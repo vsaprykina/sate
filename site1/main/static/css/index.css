@@ -38,7 +38,7 @@ nav ul li a {
 }
 
 
-/* Appointment */
+
 .appointment {
   display: flex;
   align-items: center;
@@ -46,7 +46,7 @@ nav ul li a {
 
 .appointment a {
   text-decoration: none;
-  color: #A566B0;
+  color: #CA8CCD;
   font-size: 14px;
   padding: 8px 16px;
   border: 2px solid #CA8CCD;
@@ -61,7 +61,37 @@ nav ul li a {
 }
 
 
-/* Navigation Hover Effect */
+
+
+@media only screen and (max-width: 768px) {
+  .logo img {
+      height: 30px;
+  }
+
+  nav ul {
+      flex-direction: column;
+  }
+
+  nav ul li {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .logo img {
+      height: 30px;
+  }
+
+  nav ul {
+      flex-direction: column;
+  }
+
+  nav ul li {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+}
 nav ul li a:hover::after {
   content: '';
   display: block;
@@ -69,8 +99,6 @@ nav ul li a:hover::after {
   height: 2px;
   background-color: #3D5F31; /* Цвет палочки */
 }
-
-/* Button */
 .button1 {
   padding: 15px 40px;
   border: none;
@@ -103,7 +131,7 @@ nav ul li a:hover::after {
 /* Welcome Section */
 .welcome-section {
   position: relative;
-  background-image: url('./фон.PNG');
+  background-image: url('{% static "img/фон.png" %}');
   background-size: cover;
   background-position: center;
   padding: 80px 20px;
@@ -198,154 +226,7 @@ footer {
   margin-right: 10px;
 }
 
-/* Hidden Articles */
-.hiddenArticles {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  gap: 10px;
-  text-align: center;
-  margin-left: 270px;
-}
 
-.hiddenArticles {
-  display: none;
-}
-
-.hiddenArticleContainer,
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  gap: 20px;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.hiddenArticleContainer.active {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.hiddenArticle img,
-.article img {
-  width: 230px;
-  height: 230px;
-  object-fit: cover;
-}
-
-
-
-  #showMoreButton,
-  #hideButton {
-    margin: 20px auto; /* Размещаем кнопку по центру */
-    padding: 10px 20px; /* Отступы внутри кнопки */
-    background-color: #3D5F31; /* Цвет фона кнопки */
-    color: white; /* Цвет текста кнопки */
-    border: none; /* Убираем границу */
-    border-radius: 5px; /* Закругляем углы кнопки */
-    cursor: pointer; /* Изменяем курсор при наведении */
-  }
-
-  #showMoreButton:hover,
-  #hideButton:hover {
-    background-color: #A566B0; /* Изменяем цвет фона кнопки при наведении */
-  }
-
-  .hiddenArticles.show {
-    display: grid; /* Показываем скрытые статьи */
-  }
-
-
-  #hideButton {
-    display: none; /* Скрываем кнопку "Скрыть" по умолчанию */
-  }
-
-
-
-  #showMoreButton {
-    margin: 20px auto 0;
-    margin-top: 20px; /* Опускаем кнопку ниже */
-    width: 25%;
-    padding: 5px;
-    background-color: #3D5F31;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none; /* Убираем подчеркнутую линию */
-    display: block; /* Делаем кнопку блочным элементом, чтобы она занимала всю ширину */
-  }
-
-  #showMoreButton:hover {
-    background-color: #A566B0; /* Изменяем цвет фона кнопки при наведении */
-  }
-
-  #hideButton {
-
-    margin: 20px auto 0;
-    margin-top: 20px; /* Опускаем кнопку ниже */
-    width: 25%;
-    padding: 5px;
-    background-color: #3D5F31;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none; /* Убираем подчеркнутую линию */
-
-      display: none; /* Изначально скрываем кнопку */
-
-  }
-
-  #hideButton:hover {
-    background-color: #A566B0; /* Изменяем цвет фона кнопки при наведении */
-  }
-
-  .underline7 {
-    width: 100px;
-    height: 3px;
-    background-color: #3D5F31;
-    border: none;
-    margin-top: 5px;
-    width: 100px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-    gap: 10px; /* Расстояние между статьями */
-    text-align: center;
-    margin-top: 40px;
-  }
-
-  .article {
-    position: relative;
-    width: 250px;
-    height: 250px;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden; /* Скрытие лишнего контента */
-    border: 3px solid #3D5F31; /* Добавляем рамку */
-  }
-
-
-  .caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-
-    text-align: center;
-  }
 
 
 
@@ -534,6 +415,7 @@ footer {
   background-position: center;
   text-align: center;
   padding: 50px 0;
+  margin-top: -50px
 
 }
 
@@ -669,12 +551,21 @@ footer {
 
 
 
-
+.testimonial-section {
+  background-image: url('{% static 'img/фон2.PNG' %}');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px 0;
+  margin-bottom: 50px; /* Добавляем отступ снизу */
+   margin-top: -5px
+}
 
 .gallery-section3 {
   text-align: center;
   padding: 50px 0;
-  background-image: url('./фон3.PNG');
+  background-image: url('{% static 'img/фон3.PNG' %}');
+  margin-top: -10px; /* Поднимаем секцию "Посмотрите, как проходят наши занятия" */
 }
 
 .caption3 {
@@ -791,3 +682,138 @@ footer {
 .btn1:hover {
   background-color: #A566B0;
 }
+
+
+
+
+.messages {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.messages li {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.messages li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+
+
+.featured-articles {
+  background-image: url('{% static 'img/фон2.PNG' %}');
+  background-size: cover;
+  background-position: center;
+  padding: 40px 0;
+}
+
+.title7 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title7 h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3D5F31;
+}
+
+.underline7 {
+  width: 100px;
+  height: 3px;
+  background-color: #3D5F31;
+  border: none;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.other-articles {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+}
+
+.article {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  border: 3px solid #3D5F31;
+}
+
+.article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 10px;
+  text-align: center;
+}
+
+.caption h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.caption a {
+  color: #3D5F31;
+  text-decoration: none;
+}
+
+.buttons-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+#showMoreButton,
+#hideButton {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 10px 20px;
+  background-color: #3D5F31;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#showMoreButton:hover,
+#hideButton:hover {
+  background-color: #A566B0;
+}
+
+#hideButton {
+  display: none;
+}
+
+
+

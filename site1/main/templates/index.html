@@ -1,15 +1,20 @@
-{% load static %}
+ {% load static %}
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Главная</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Главная</title>
+
+  <link rel="stylesheet" href="{% static 'css/index.css' %}">
+
 </head>
 <body>
 <header>
     <div class="logo">
-        <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+        </a>
     </div>
     <nav>
         <ul>
@@ -21,276 +26,215 @@
     </nav>
 
     <div class="appointment">
-        <a href="{% url 'appointment' %}" class="button">Записаться на приём</a>
+        <a href="{% url 'services' %}#appointment-form" class="button">Записаться на приём</a>
     </div>
 </header>
-
-<section class="welcome-section">
+<section class="welcome-section" style="background-image: url('{% static 'img/фон.PNG' %}');">
     <div class="welcome-text">
-        <h1>Добро пожаловать <br> на сайт логопеда!</h1>
-        <p>Меня зовут Елена, и я предлагаю <br>
+      <h1>Добро пожаловать <br> на сайт логопеда!</h1>
+      <p>Меня зовут Елена, и я предлагаю <br>
         профессиональную помощь<br>
-        в развитии речи вашего ребенка.</p>
-        <a href="{% url 'appointment' %}" class="button1">Записаться онлайн</a>
+         в развитии речи вашего ребенка.</p>
+      <a href="{% url 'services' %}#appointment-form" class="button1">Записаться на приём</a>
     </div>
     <div class="image-container">
-        <img src="{% static 'img/фотка5.png' %}" alt="Логопед">
+      <img src="{% static 'img/фотка5.png' %}" alt="Логопед">
     </div>
-</section>
+  </section>
 
-<section class="section-background">
-    <section class="gallery">
-        <div class="title7">
-            <h2>Статьи</h2>
-            <hr class="underline7">
+<section class="featured-articles" style="background-image: url('{% static 'img/фон2.PNG' %}');">
+   <div class="title7">
+    <h2>Статьи</h2>
+    <hr class="underline7">
+  </div>
+<section class="other-articles">
+  <div class="hiddenArticles">
+    {% for article in all_articles %}
+      <div class="article">
+        {% if article.image %}
+          <img src="{{ article.image.url }}" alt="{{ article.title }}">
+        {% endif %}
+        <div class="caption">
+          <h3>{{ article.title }}</h3>
+          <a href="{% url 'article_detail' article.pk %}" class="read-more-link">Читать далее</a>
         </div>
-        <div class="articles">
-            <div class="article">
-                <a href="{% url 'article1' %}">
-                    <img src="{% static 'img/статья1.jpg' %}" alt="Название статьи 1"></a>
-                <div class="caption">В каких еще случаях поможет логопедический зондовый массаж?</div>
-            </div>
-            <div class="article">
-                <a href="{% url 'article2' %}"><img src="{% static 'img/статья2.jpg' %}" alt="Название статьи 2"></a>
-                <div class="caption">Возрастные нормы развития речи</div>
-            </div>
-       <div class="article">
-    <a href="{% url 'article3' %}">
-        <img src="{% static 'img/статья3.jpg' %}" alt="Название статьи 3">
-    </a>
-    <div class="caption">Речь ребенка в 3 года: нормы и отклонения</div>
-</div>
-
-<div class="article">
-    <a href="{% url 'article4'  %}">
-        <img src="{% static 'img/статья4.jpg' %}" alt="Название статьи 4">
-    </a>
-    <div class="caption">Рекомендации по проведению домашнего речевого занятия — консультация для родителей</div>
-</div>
-        </div>
-        <div class="hiddenArticles">
-            <div class="article">
-    <a href="{% url 'article5'  %}">
-        <img src="{% static 'img/статья5.jpg' %}" alt="Название статьи 5">
-    </a>
-    <div class="caption">На что необходимо обратить внимание родителям детей первого года жизни</div>
-</div>
-
-<div class="article">
-    <a href="{% url 'article6' %}">
-        <img src="{% static 'img/статья61.jpg' %}" alt="Название статьи 6">
-    </a>
-    <div class="caption">Закрепляем звуки дома — советы логопеда родителям</div>
-</div>
-
-<div class="article">
-    <a href="{% url 'article7' %}">
-        <img src="{% static 'img/статья7.jpeg' %}" alt="Название статьи 7">
-    </a>
-    <div class="caption">Профилактика истерик</div>
-</div>
-
-<div class="article">
-    <a href="{% url 'article8' %}">
-        <img src="{% static 'img/статья8.jpeg' %}" alt="Название статьи 8">
-    </a>
-    <div class="caption">Тейпирование в работе логопеда</div>
-</div>
-
-<div class="article">
-    <a href="{% url 'article9' %}">
-        <img src="{% static 'img/статья9.png' %}" alt="Название статьи 9">
-    </a>
-    <div class="caption">Нетрадиционные приемы по автоматизации звуков</div>
-</div>
-
-<div class="article">
-    <a href="{% url 'article10' %}">
-        <img src="{% static 'img/статья10.jpg' %}" alt="Название статьи 10">
-    </a>
-    <div class="caption">Значимость артикуляционной, дыхательной и пальчиковой гимнастик в речевом развитии детей дошкольного возраста</div>
-</div>
-        </div>
-    </section>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="buttons-container">
     <button id="showMoreButton">Показать еще</button>
-    <button id="hideButton">Скрыть</button>
+    <button id="hideButton" style="display: none;">Скрыть</button>
+  </div>
 </section>
+    </section>
 
-<section class="advantages">
+
+
+  <section class="advantages" style="background-image: url('{% static 'img/фон2.PNG' %}');">
     <div class="title1">
-        <h2>Преимущества работы со мной</h2>
-        <hr class="underline">
+      <h2>Преимущества работы со мной</h2>
+      <hr class="underline">
     </div>
     <div class="container1">
-        <div class="advantage">
-            <div class="content">
-                <h3>Индивидуальный подход</h3>
-                <p>Я глубоко понимаю потребности каждого своего пациента и разрабатываю персонализированную программу коррекции речи.</p>
-            </div>
+      <div class="advantage">
+        <div class="content">
+          <h3>Индивидуальный подход</h3>
+          <p>Я глубоко понимаю потребности каждого своего пациента и разрабатываю персонализированную программу коррекции речи.</p>
         </div>
-        <div class="advantage">
-            <div class="content">
-                <h3>Профессионализм и опыт</h3>
-                <p>У меня большой опыт с детьми и взрослыми с различными речевыми нарушениями, что позволяет мне эффективно помогать каждому.</p>
-            </div>
-        </div>
-        <div class="advantage">
-            <div class="content">
-                <h3>Поддержка и понимание</h3>
-                <p>Я предоставляю не только профессиональное лечение, но и эмоциональную поддержку и понимание, что помогает пациентам чувствовать себя комфортно и уверенно.</p>
-            </div>
-        </div>
-        <div class="advantage">
-            <div class="content">
-                <h3>Креативность и инновации</h3>
-                <p>Я постоянно ищу новые методики и подходы к работе, чтобы обеспечить наилучшие результаты для своих пациентов.</p>
-            </div>
-        </div>
-        <div class="advantage">
-            <div class="content">
-                <h3>Результаты</h3>
-                <p>Благодаря моему тщательному подходу и постоянной работе над собой, мои пациенты достигают заметных улучшений в своей речи и общении.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="services-section" style="background-image: url('{% static 'img/фон3.PNG' %}');">
-  <div class="services-container">
-    <h2 style="margin-bottom: 20px;">Услуги</h2>
-    <hr class="underline" style="margin-bottom: 20px;">
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>Постановка, автоматизация, дифференциация звуков</h3>
       </div>
-      <div class="service-card">
-        <h3>Артикуляционная гимнастика</h3>
+      <div class="advantage">
+        <div class="content">
+          <h3>Профессионализм и опыт</h3>
+          <p>У меня большой опыт с детьми и взрослыми с различными речевыми нарушениями, что позволяет мне эффективно помогать каждому.</p>
+        </div>
       </div>
-      <div class="service-card">
-        <h3>Логопедический массаж</h3>
+      <div class="advantage">
+        <div class="content">
+          <h3>Поддержка и понимание</h3>
+          <p>Я предоставляю не только профессиональное лечение, но и эмоциональную поддержку и понимание, что помогает пациентам чувствовать себя комфортно и уверенно.</p>
+        </div>
+      </div>
+      <div class="advantage">
+        <div class="content">
+          <h3>Креативность и инновации</h3>
+          <p>Я постоянно ищу новые методики и подходы к работе, чтобы обеспечить наилучшие результаты для своих пациентов.</p>
+        </div>
+      </div>
+      <div class="advantage">
+        <div class="content">
+          <h3>Результаты</h3>
+          <p>Благодаря моему тщательному подходу и постоянной работе над собой, мои пациенты достигают заметных улучшений в своей речи и общении.</p>
+        </div>
       </div>
     </div>
-    <a href="{% url 'services' %}" class="btn">Еще</a>
-  </div>
-</section>
+  </section>
 
-<section class="certificate-section">
-  <div class="title1">
-    <h2>Мои достижения</h2>
-    <hr class="underline">
-  </div>
-  <div class="certificate-gallery">
-    <div class="certificate-item">
-      <img src="{% static 'img/серт1.jpg' %}" alt="Сертификат 1">
+  <section class="services-section" style="background-image: url('{% static 'img/фон3.PNG' %}');">
+    <div class="services-container">
+      <h2 style="margin-bottom: 20px;">Услуги</h2>
+      <hr class="underline" style="margin-bottom: 20px;">
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>Постановка, автоматизация, дифференциация звуков</h3>
+        </div>
+        <div class="service-card">
+          <h3>Артикуляционная гимнастика</h3>
+        </div>
+        <div class="service-card">
+          <h3>Логопедический массаж</h3>
+        </div>
+      </div>
+      <a href="{% url 'services' %}" class="btn">Еще</a>
     </div>
-    <div class="certificate-item">
-      <img src="{% static 'img/серт2.jpg' %}" alt="Сертификат 2">
-    </div>
-    <div class="certificate-item">
-      <img src="{% static 'img/серт3.jpg' %}" alt="Сертификат 3">
-    </div>
-    <div class="certificate-item">
-      <img src="{% static 'img/серт4.jpg' %}" alt="Сертификат 4">
-    </div>
-    <div class="certificate-item">
-      <img src="{% static 'img/серт5.jpg' %}" alt="Сертификат 5">
-    </div>
-    <div class="certificate-item">
-      <img src="{% static 'img/серт6.jpg' %}" alt="Сертификат 6">
-    </div>
-  </div>
-  <a href="{% url 'about' %}" class="btn1">Еще</a>
-</section>
+  </section>
 
-<div class="gallery-section3">
-  <div class="caption3">Посмотрите, как проходят наши занятия</div>
-  <div class="underline"></div>
-  <div class="gallery3">
-    <img src="{% static 'img/ребенок 4.jpg' %}" alt="Photo 1">
-    <img src="{% static 'img/ребенок 5.jpg' %}" alt="Photo 2">
-    <img src="{% static 'img/ребенок 6.jpg' %}" alt="Photo 3">
-    <img src="{% static 'img/ребенок 7.jpg' %}" alt="Photo 4">
-  </div>
-</div>
-<section class="testimonial-section">
+  <section class="certificate-section" style="background-image: url('{% static 'img/фон2.PNG' %}');">
+    <div class="title1">
+      <h2>Мои достижения</h2>
+      <hr class="underline">
+    </div>
+    <div class="certificate-gallery">
+      <div class="certificate-item">
+        <img src="{% static 'img/серт1.jpg' %}" alt="Сертификат 1">
+      </div>
+      <div class="certificate-item">
+        <img src="{% static 'img/серт2.jpg' %}" alt="Сертификат 2">
+      </div>
+      <div class="certificate-item">
+        <img src="{% static 'img/серт3.jpg' %}" alt="Сертификат 3">
+      </div>
+      <div class="certificate-item">
+        <img src="{% static 'img/серт4.jpg' %}" alt="Сертификат 4">
+      </div>
+      <div class="certificate-item">
+        <img src="{% static 'img/серт5.jpg' %}" alt="Сертификат 5">
+      </div>
+      <div class="certificate-item">
+        <img src="{% static 'img/серт6.jpg' %}" alt="Сертификат 6">
+      </div>
+    </div>
+    <a href="{% url 'about' %}" class="btn1">Еще</a>
+  </section>
+
+  <section class="gallery-section3" style="background-image: url('{% static 'img/фон3.PNG' %}');">
+    <div class="caption3">Посмотрите, как проходят наши занятия</div>
+    <div class="underline"></div>
+    <div class="gallery3">
+      <img src="{% static 'img/ребенок 4.jpg' %}" alt="Photo 1">
+      <img src="{% static 'img/ребенок 5.jpg' %}" alt="Photo 2">
+      <img src="{% static 'img/ребенок 6.jpg' %}" alt="Photo 3">
+      <img src="{% static 'img/ребенок 7.jpg' %}" alt="Photo 4">
+    </div>
+  </section>
+
+<section class="testimonial-section" style="background-image: url('{% static 'img/фон2.PNG' %}');">
     <div class="title1">
       <h2>Отзывы</h2>
       <hr class="underline">
     </div>
     <div class="testimonial-container">
       <div class="testimonial-slider">
+        {% for testimonial in testimonials %}
         <div class="testimonial-slide">
-          <p>Хочу выразить огромную благодарность Елене за ее профессионализм и заботу о моем ребенке. Благодаря ее терпению и теплоте, мой сын начал проявлять интерес к обучению речи. Елена не просто помогает развивать навыки коммуникации, но и создает дружескую атмосферу, в которой ребенок чувствует себя комфортно и уверенно.</p>
-          <span>- Екатерина Ли</span>
+          <p>{{ testimonial.text }}</p>
+          <span>- {{ testimonial.author }}</span>
         </div>
-        <div class="testimonial-slide">
-          <p>Очень рада, что обратилась за помощью к Елене. Она сразу же установила теплый контакт с моей дочерью и помогла ей преодолеть страх перед общением. Елена прекрасно подходит детям, у нее настоящий талант в обучении. Благодаря ее занятиям, ребенок стал гораздо увереннее и активнее.</p>
-          <span>- Мария Швач</span>
-        </div>
-        <div class="testimonial-slide">
-          <p>После долгих поисков мы наконец нашли замечательного логопеда! Мы обратились к Елене с проблемой недоразвития речи у нашего ребенка, и не могли быть счастливее результатом. Елена демонстрирует высокий профессионализм и заботу к каждому своему пациенту. Она внимательно выслушала наши опасения и разработала индивидуальную программу коррекции речи для нашего ребенка. Благодаря её креативному подходу и эмпатии, мы видим заметные улучшения в речи нашего ребенка уже через несколько недель. Мы безмерно благодарны Елене за её профессионализм, терпение и поддержку!</p>
-          <span>- Анастасия Зинченко</span>
-        </div>
-        <div class="testimonial-slide">
-          <p>Отличный педагог!!! Легко нашла общий язык с моим сыном, на занятия ходят с удовольствием. За пару месяцев занятий ребенок стал чисто и красиво проговаривать все звуки.</p>
-          <span>- Валентина Грись</span>
-        </div>
-
+        {% endfor %}
       </div>
-      <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-      <button class="next" onclick="plusSlides(1)">&#10095;</button>
+      <button class="prev" onclick="prevSlide()">&#10094;</button>
+      <button class="next" onclick="nextSlide()">&#10095;</button>
     </div>
     <a href="{% url 'contacts' %}" class="btn1">Еще</a>
-  </div>
+  </section>
 
+<section class="centered-section" style="background-image: url('{% static 'img/фон3.PNG' %}');">
+    <h2>Задайте свой вопрос</h2>
+    <div class="underline"></div>
+    <form class="contact-form" action="{% url 'index_question' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <input type="text" id="full-name" name="full-name" placeholder="Введите ФИО" pattern="[A-Za-zА-Яа-яЁё\s]+" title="Введите только буквы" required>
+        </div>
+        <div class="form-group">
+            <input type="email" id="email" name="email" placeholder="Введите email" required>
+        </div>
+        <div class="form-group">
+            <textarea id="message" name="message" placeholder="Введите ваше сообщение" minlength="10" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
+        </div>
+        <button type="submit" class="submit-button">Отправить</button>
+    </form>
 </section>
 
-<section class="centered-section">
-  <h2>Задайте свой вопрос</h2>
-  <div class="underline"></div>
-  <form class="contact-form" action="{% url 'index_question' %}" method="post">
-    {% csrf_token %}
-    <div class="form-group">
-      <input type="text" id="full-name" name="full-name" placeholder="Введите ФИО" required>
+    <footer>
+    <div class="logo">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+        </a>
     </div>
-    <div class="form-group">
-      <input type="email" id="email" name="email" placeholder="Введите email" required>
-    </div>
-    <div class="form-group">
-      <textarea id="message" name="message" placeholder="Введите ваше сообщение" required></textarea>
-    </div>
-    <div class="form-group">
-      <input type="checkbox" id="agree" name="agree" required>
-      <label for="agree">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
-    </div>
-    <button type="submit" class="submit-button">Отправить</button>
-  </form>
-</section>
-<footer>
-    <div class="footer-column">
-        <img src="{% static 'css/Снимок3.png' %}" alt="Логотип">
-    </div>
-    <div class="footer-column">
-        <h3>Контакты</h3>
-        <p>+7(908)506-86-97</p>
-        <p>shapovalova.ale@yanndex.ru</p>
-        <p>г.Новочеркасск, р-н Молодежный, Речная 38</p>
-    </div>
-    <div class="footer-column">
-        <h3>Режим работы</h3>
-        <p>с 10:00 до 19:00 (пн-Сб)</p>
-    </div>
-    <div class="footer-column">
-        <h3>Мои соц. сети</h3>
-        <a href="https://vk.com/id461825566"><img src="{% static 'css/vk.png' %}" alt="Vk"></a>
-        <a href="https://wa.me/79085068697"><img src="{% static 'css/wats.png' %}" alt="Whatsapp"></a>
-        <a href="https://t.me/Alenahapovalova"><img src="{% static 'css/tg.png' %}" alt="Telegram"></a>
-    </div>
-</footer>
-
-<script src="{% static 'js/stati.js' %}"></script>
-<script src="{% static 'js/stati2.js' %}"></script>
-<script src="{% static 'js/slider.js' %}"></script>
-
+        <div class="footer-column">
+            <h3>Контакты</h3>
+            <p>+7(908)506-86-97</p>
+            <p>shapovalova.ale@yanndex.ru</p>
+            <p>г.Новочеркасск, р-н Молодежный, Речная 38</p>
+        </div>
+        <div class="footer-column">
+            <h3>Режим работы</h3>
+            <p>с 10:00 до 19:00 (пн-Сб)</p>
+        </div>
+        <div class="footer-column">
+            <h3>Мои соц. сети</h3>
+            <div class="social-icons">
+                <a href="https://vk.com/id461825566"><img src="{% static 'img/vk.png' %}" alt="Vk"></a>
+                <a href="https://wa.me/79085068697"><img src="{% static 'img/wats.png' %}" alt="Whatsapp"></a>
+                <a href="https://t.me/Alenahapovalova"><img src="{% static 'img/tg.png' %}" alt="Telegram"></a>
+            </div>
+        </div>
+    </footer>
+  <script src="{% static 'js/slider.js' %}"></script>
+  <script src="{% static 'js/stati3.js' %}"></script>
 </body>
 </html>
