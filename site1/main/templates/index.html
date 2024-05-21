@@ -1,5 +1,5 @@
  {% load static %}
-
+ 
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -48,7 +48,6 @@
     <hr class="underline7">
   </div>
 <section class="other-articles">
-  <div class="hiddenArticles">
     {% for article in all_articles %}
       <div class="article">
         {% if article.image %}
@@ -60,7 +59,6 @@
         </div>
       </div>
     {% endfor %}
-  </div>
   <div class="buttons-container">
     <button id="showMoreButton">Показать еще</button>
     <button id="hideButton" style="display: none;">Скрыть</button>

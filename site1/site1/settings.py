@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -129,10 +130,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.mail.ru'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'vsaprykina1401@mail.ru'
-EMAIL_HOST_PASSWORD = 'vikysa1401'
+EMAIL_HOST_USER = 'logopednovoherkassk@gmail.com'
+EMAIL_HOST_PASSWORD = 'logoped227'
 
-ADMIN_EMAIL = 'vsaprykina1401@mail.ru'  # Замените на вашу почту администратора проверь и исправь
+DEFAULT_FROM_EMAIL = 'logopednovoherkassk@gmail.com'

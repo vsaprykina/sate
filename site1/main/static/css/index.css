@@ -425,53 +425,6 @@ footer {
   font-weight: bold;
 }
 
-.contact-form {
-  background-color: #fed3f4; /* фиолетовый цвет */
-  max-width: 500px; /* Увеличиваем ширину формы */
-  margin: 0 auto;
-  padding: 30px; /* Увеличиваем внутренние отступы */
-  border-radius: 10px;
-  margin-top: 30px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-group label {
-  color: rgb(0, 0, 0);
-  display: block;
-  font-size: 16px;
-  margin-bottom: 5px;
-  text-align: left;
-}
-
-.form-group input,
-.form-group textarea {
-  width: calc(100% - 20px); /* Выравниваем поля ввода по ширине формы с учетом внутренних отступов */
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  outline: none;
-}
-
-.form-group textarea {
-  resize: none; /* запретить изменение размера */
-}
-
-.submit-button {
-  background-color: #3D5F31; /* красный цвет */
-  color: white;
-  border: none;
-  padding: 12px 24px; /* Увеличиваем отступы кнопки */
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s; /* плавное изменение цвета при наведении */
-}
-
-.submit-button:hover {
-  background-color: #A566B0; /* фиолетовый цвет при наведении */
-}
 
 
 
@@ -619,34 +572,7 @@ footer {
   right: 10px; /* Позиция кнопки "вперед" */
 }
 
-.checkbox-label {
-  position: absolute;
-  left: calc(50% - 140px); /* Установка горизонтального положения текста */
-  top: calc(50% + 50px); /* Установка вертикального положения текста */
-  transform: translateX(-50%);
-  font-size: 14px; /* Размер шрифта текста */
-  color: #333; /* Цвет текста */
-}
 
-.checkbox {
-  position: absolute;
-  left: calc(50% - 180px); /* Установка горизонтального положения кнопки с галочкой */
-  top: calc(50% + 50px); /* Установка вертикального положения кнопки с галочкой */
-}
-
-
-.form-group input[type="checkbox"] {
-  position: absolute;
-  left: -180px; /* Устанавливаем отступ слева для чекбокса */
-}
-
-.form-group label {
-  display: inline; /* Размещаем текст в строку */
-  margin-left: 10px; /* Добавляем небольшой отступ слева от чекбокса */
-}
-.appointment-form label[for="agree"] {
-  color: #333; /* Черный цвет текста */
-}
 
 .btn {
   margin: 20px auto 0;
@@ -722,12 +648,13 @@ footer {
 .title7 {
   text-align: center;
   margin-bottom: 20px;
+  margin-left: 5px;
 }
 
 .title7 h2 {
   font-size: 24px;
   font-weight: bold;
-  color: #3D5F31;
+  color: #000000; /* Изменили цвет на черный */
 }
 
 .underline7 {
@@ -741,15 +668,18 @@ footer {
 }
 
 .other-articles {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 10px; /* Расстояние между статьями */
+    text-align: center;
+    margin-top: 40px;
 }
 
 .article {
   position: relative;
-  width: 100%;
-  height: 250px;
+  width: 220px;
+  height: 220px; /* Уменьшаем высоту статей */
   background-color: #f0f0f0;
   display: flex;
   align-items: center;
@@ -757,6 +687,7 @@ footer {
   text-align: center;
   overflow: hidden;
   border: 3px solid #3D5F31;
+  padding: 20px;
 }
 
 .article img {
@@ -773,42 +704,43 @@ footer {
   background-color: rgba(255, 255, 255, 0.7);
   padding: 10px;
   text-align: center;
+  padding-bottom: 20px; /* Увеличиваем отступ снизу */
 }
 
 .caption h3 {
   font-size: 16px;
   font-weight: bold;
-  margin-bottom: 5px;
+  margin-bottom: 0; /* Убираем отступ снизу у заголовка */
 }
-
 .caption a {
   color: #3D5F31;
   text-decoration: none;
 }
 
 .buttons-container {
-  text-align: center;
+  display: flex;
+  justify-content: flex-end;
   margin-top: 40px;
 }
 
 #showMoreButton,
 #hideButton {
   display: inline-block;
-  margin: 0 10px;
   padding: 10px 20px;
   background-color: #3D5F31;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
+  width: 250px;
+  margin-left: -500px;
+  margin-top: -20px;
 }
 
 #showMoreButton:hover,
 #hideButton:hover {
-  background-color: #A566B0;
+  background-color: #A566B0; /* Изменяем цвет фона кнопки при наведении */
+
 }
 
 #hideButton {
@@ -816,4 +748,135 @@ footer {
 }
 
 
+.centered-section {
+  background-image: url('{% static 'img/фон3.PNG' %}');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 60px 0; /* Увеличиваем отступ сверху */
+}
 
+.centered-section h2 {
+  color: rgb(0, 0, 0);
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px; /* Уменьшаем отступ снизу */
+}
+
+.underline {
+  width: 100px;
+  height: 3px;
+  background-color: #3D5F31;
+  border: none;
+  margin-bottom: 30px; /* Увеличиваем отступ снизу */
+}
+
+.contact-form {
+  background-color: #fed3f4;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.contact-form .form-group {
+  margin-bottom: 15px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-form label {
+  display: block;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 3px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #999;
+  outline: none;
+  color: #333; /* Устанавливаем черный цвет текста */
+}
+
+.contact-form textarea {
+  height: 70px;
+  resize: none;
+}
+
+.contact-form button.submit-button {
+  width: 160px;
+  background-color: #3D5F31;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  display: block;
+  margin: 0 auto;
+  margin-top: 0;
+}
+
+.contact-form button.submit-button:hover {
+  background-color: #A566B0;
+}
+
+.contact-form .form-group input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #3D5F31;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  margin-right: 6px;
+  position: static;
+  left: auto;
+  margin-top: 0;
+}
+
+.contact-form .form-group input[type="checkbox"]:checked {
+  background-color: #3D5F31;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z' fill='%23fff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.contact-form .form-group {
+  display: flex;
+  align-items: center;
+}
+
+.contact-form .form-group label {
+  font-size: 14px;
+  color: #999;
+  display: inline;
+  margin-left: 6px;
+}
+
+.contact-form .form-group label span {
+  font-size: 14px;
+}
+
+.contact-form .form-group label a {
+  color: #3D5F31;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.contact-form .form-group label a:hover {
+  color: #A566B0;
+}
