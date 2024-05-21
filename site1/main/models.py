@@ -27,12 +27,15 @@ class Appointment(models.Model):
 
 
 class Question(models.Model):
-    full_name = models.CharField(max_length=100)
+    full_name = models.CharField(max_length=100, verbose_name='ФИО', blank=False, null=False)
     email = models.EmailField()
     message = models.TextField()
     response = models.TextField(blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     is_answered = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.full_name} - {self.email}"
 
     class Meta:
         verbose_name = 'Вопрос'

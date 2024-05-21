@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="article-detail">
+    {% if article.image %}
+      <img src="{{ article.image.url }}" alt="{{ article.title }}">
+    {% endif %}
+    <h1>{{ article.title }}</h1>
+    <div class="article-content">
+      {{ article.content|linebreaks }}
+    </div>
+  </div>
+{% endblock %}

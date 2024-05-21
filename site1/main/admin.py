@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import Service, Appointment
-from .models import Question
 from .models import Article
 from .models import Testimonial
+from .models import Question
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('title', 'duration', 'price')
@@ -27,7 +27,6 @@ class AppointmentAdmin(admin.ModelAdmin):
     reject_appointments.short_description = "Reject selected appointments"
 
 
-
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'is_answered', 'created_at')
@@ -39,7 +38,16 @@ class QuestionAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if 'response' in form.changed_data:
             obj.is_answered = True
+            self.send_response_email(obj)
         super().save_model(request, obj, form, change)
+
+    def send_response_email(self, question):
+        subject = 'Ответ на ваш вопрос'
+        body = f"Здравствуйте, {question.full_name}!\n\nВот ответ на ваш вопрос:\n\n{question.response}"
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = question.email
+        send_mail(subject, body, from_email, [to_email], fail_silently=False)
+
 
 
 @admin.register(Article)

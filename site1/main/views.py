@@ -14,6 +14,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Article
 from .models import Testimonial
 
+
 def contact_page(request):
     return render(request, 'contacts.html')
 
@@ -40,30 +41,29 @@ def index_question_view(request):
         message = request.POST.get('message')
         agree = request.POST.get('agree')
 
-        # Валидация полей
-        if not full_name.isalpha() or len(full_name.split()) < 2:
-            messages.error(request, 'Пожалуйста, введите корректное ФИО.')
-            return redirect('index')
-        if not email or '@' not in email:
-            messages.error(request, 'Пожалуйста, введите корректный email.')
-            return redirect('index')
+        errors = {}
+        if not full_name:
+            errors['full-name'] = 'Пожалуйста, введите ФИО.'
+        if not email:
+            errors['email'] = 'Пожалуйста, введите email.'
         if not message or len(message) < 10:
-            messages.error(request, 'Пожалуйста, введите сообщение длиной не менее 10 символов.')
-            return redirect('index')
+            errors['message'] = 'Пожалуйста, введите сообщение длиной не менее 10 символов.'
         if not agree:
-            messages.error(request, 'Вы должны согласиться с политикой конфиденциальности.')
+            errors['agree'] = 'Вы должны согласиться с политикой конфиденциальности.'
+
+        if errors:
+            for field, error in errors.items():
+                messages.error(request, error)
+        else:
+            Question.objects.create(
+                full_name=full_name,
+                email=email,
+                message=message
+            )
+            messages.success(request, 'Спасибо за обращение! Мы скоро вам ответим.')
             return redirect('index')
 
-        # Отправка email
-        subject = 'Новое сообщение с сайта'
-        body = f'Имя: {full_name}\nEmail: {email}\nСообщение: {message}'
-        send_mail(subject, body, settings.DEFAULT_FROM_EMAIL, [settings.ADMIN_EMAIL], fail_silently=False)
-
-        messages.success(request, 'Спасибо за обращение! Мы скоро вам ответим.')
-        return redirect('index')
-
-    return redirect('index')
-
+    return render(request, 'index.html')
 
 def services(request):
     services = Service.objects.all()

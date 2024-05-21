@@ -137,3 +137,4 @@ EMAIL_HOST_USER = 'logopednovoherkassk@gmail.com'
 EMAIL_HOST_PASSWORD = 'logoped227'
 
 DEFAULT_FROM_EMAIL = 'logopednovoherkassk@gmail.com'
+ADMIN_EMAIL = 'logopednovoherkassk@gmail.com'  

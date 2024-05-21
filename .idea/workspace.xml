@@ -1,18 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d18d15d-6288-427c-9adb-11b382cae217" name="Changes" comment="" />
+    <list default="true" id="7d18d15d-6288-427c-9adb-11b382cae217" name="Changes" comment="Добавление статей в админ панель для их редактирования">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/site1/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/about.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/about.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/contacts.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/contacts.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/services.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/services.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article10.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article3.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article4.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article5.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article6.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article7.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article8.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/article9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/contacts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/services.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/site1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/site1/settings.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="a0f4281a-d401-471a-848d-fe61688ee404" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2gQ87rMaUc3nzK48VFaal075fti" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -20,13 +61,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/python/sate/site1/main/static/img&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\python\sate\site1\main\static\img" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="sate" />
@@ -67,7 +116,130 @@
       <option name="presentableId" value="Default" />
       <updated>1715618278194</updated>
     </task>
+    <task id="LOCAL-00001" summary="верстка главной страницы">
+      <option name="closed" value="true" />
+      <created>1715695840355</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1715695840355</updated>
+    </task>
+    <task id="LOCAL-00002" summary="верстка страницы услуг">
+      <option name="closed" value="true" />
+      <created>1715696011963</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1715696011964</updated>
+    </task>
+    <task id="LOCAL-00003" summary="верстка статей">
+      <option name="closed" value="true" />
+      <created>1715721003310</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715721003310</updated>
+    </task>
+    <task id="LOCAL-00004" summary="создание бэкэнд части услуг. Добавление, изменение, редактирование карточек услуг">
+      <option name="closed" value="true" />
+      <created>1715784835082</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715784835082</updated>
+    </task>
+    <task id="LOCAL-00005" summary="верстка первой секции контакты">
+      <option name="closed" value="true" />
+      <created>1715812585700</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1715812585700</updated>
+    </task>
+    <task id="LOCAL-00006" summary="верстка footer">
+      <option name="closed" value="true" />
+      <created>1715813038123</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715813038123</updated>
+    </task>
+    <task id="LOCAL-00007" summary="обновленный header">
+      <option name="closed" value="true" />
+      <created>1715897437106</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1715897437106</updated>
+    </task>
+    <task id="LOCAL-00008" summary="верстка страницы Обо мне">
+      <option name="closed" value="true" />
+      <created>1715958496984</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1715958496985</updated>
+    </task>
+    <task id="LOCAL-00009" summary="верстка страницы контакты">
+      <option name="closed" value="true" />
+      <created>1715958618780</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1715958618781</updated>
+    </task>
+    <task id="LOCAL-00010" summary="добавление js для раскрытия сертификатов нв странице обо мне">
+      <option name="closed" value="true" />
+      <created>1715964314684</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1715964314684</updated>
+    </task>
+    <task id="LOCAL-00011" summary="добавление слайдера на js с отзывами в админ панель для его редактирования">
+      <option name="closed" value="true" />
+      <created>1716226391882</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1716226391882</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Добавление статей в админ панель для их редактирования">
+      <option name="closed" value="true" />
+      <created>1716305957442</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1716305957442</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="верстка главной страницы" />
+    <MESSAGE value="верстка страницы услуг" />
+    <MESSAGE value="верстка статей" />
+    <MESSAGE value="создание бэкэнд части услуг. Добавление, изменение, редактирование карточек услуг" />
+    <MESSAGE value="верстка первой секции контакты" />
+    <MESSAGE value="верстка footer" />
+    <MESSAGE value="обновленный header" />
+    <MESSAGE value="верстка страницы Обо мне" />
+    <MESSAGE value="верстка страницы контакты" />
+    <MESSAGE value="добавление js для раскрытия сертификатов нв странице обо мне" />
+    <MESSAGE value="добавление слайдера на js с отзывами в админ панель для его редактирования" />
+    <MESSAGE value="Добавление статей в админ панель для их редактирования" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление статей в админ панель для их редактирования" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

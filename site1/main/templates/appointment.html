@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="appointment-section">
+    <h2 class="section-title">Форма записи на прием</h2>
+    <div class="underline"></div>
+    <form method="post">
+      {% csrf_token %}
+      {% if appointment_form.errors %}
+        <div class="alert alert-danger">
+          <strong>Ошибка!</strong> Пожалуйста, исправьте ошибки ниже.
+          <ul>
+            {% for field, errors in appointment_form.errors.items %}
+              {% for error in errors %}
+                <li>{{ error }}</li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      {{ appointment_form.as_p }}
+      <button type="submit">Записаться</button>
+    </form>
+  </section>
+{% endblock %}

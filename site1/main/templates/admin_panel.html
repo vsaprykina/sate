@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Административная панель</title>
+</head>
+<body>
+    <h1>Административная панель</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ФИО</th>
+                <th>Электронная почта</th>
+                <th>Дата записи</th>
+                <th>Время записи</th>
+                <th>Услуга</th>
+                <th>Статус</th>
+                <th>Действия</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.full_name }}</td>
+                <td>{{ appointment.email }}</td>
+                <td>{{ appointment.appointment_date }}</td>
+                <td>{{ appointment.appointment_time }}</td>
+                <td>{{ appointment.service }}</td>
+                <td>{{ appointment.accepted }}</td>
+                <td>
+                    <form action="{% url 'accept_appointment' appointment.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Принять</button>
+                    </form>
+                    <form action="{% url 'reject_appointment' appointment.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit">Отклонить</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
