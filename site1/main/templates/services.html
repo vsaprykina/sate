@@ -1,137 +1,77 @@
+{% extends 'layout.html' %}
 {% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Услуги</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/services.css' %}">
-</head>
-<body>
-  <header>
-    <div class="logo">
-        <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
-    </div>
-    <nav>
-        <ul>
-            <li><a href="{% url 'index' %}">Главная</a></li>
-            <li><a href="{% url 'services' %}">Услуги</a></li>
-            <li><a href="{% url 'contacts' %}">Контакты</a></li>
-            <li><a href="{% url 'about' %}">Обо мне</a></li>
-        </ul>
-    </nav>
-    <div class="search">
-        <input type="search" placeholder="Поиск...">
-        <button type="submit" class="search-button"><img src="{% static 'img/поиск.png' %}" alt="Поиск"></button>
-    </div>
-    <div class="appointment">
-        <a href="#appointment-form" class="button">Записаться на приём</a>
-    </div>
-</header>
+{% block title %}Услуги{% endblock %}
 
-<section class="services">
-    <div class="services-header">
-      <h2>Услуги</h2>
-      <div class="underline"></div>
-    </div>
-    <div class="services-container">
-      {% for service in services %}
-      <div class="service-card">
-        <div class="service-image">
-          <img src="{{ service.image.url }}" alt="{{ service.title }}">
-        </div>
-        <div class="service-info">
-          <h3>{{ service.title }}</h3>
-          <p>{{ service.description }}</p>
-          <p>Продолжительность: {{ service.duration }}</p>
-          <p>Стоимость: {{ service.price }} рублей</p>
-          <a href="{% url 'appointment' %}#appointment-form" class="button3">Записаться</a>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
+{% block styles %}
 
-<section class="appointment-section">
-  <h2 class="section-title">Форма записи на прием</h2>
-  <div class="underline"></div>
-  <form id="appointment-form" class="appointment-form" method="POST" action="{% url 'appointment_submit' %}">
-      {% csrf_token %}
-      <input type="text" id="fullName" name="fullName" placeholder="Введите ФИО" pattern="[A-Za-zА-Яа-яЁё\s]+" title="Введите только буквы" required>
+{% endblock %}
+
+{% block content %}
+    <section id="ysligu" class="services" style="background-image: url('{% static 'img/фон3.PNG' %}');">
+        <div class="services-header">
+            <h2 class="section-title">Услуги</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="services-container">
+            {% for service in services %}
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                </div>
+                <div class="service-info">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <p>Продолжительность: {{ service.duration }}</p>
+                    <p>Стоимость: {{ service.price }} рублей</p>
+                  <a href="#appointment-form" class="button3">Записаться</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+
+<section class="appointment-section" style="background-image: url('{% static 'img/фон2.PNG' %}');">
+    <h2 class="section-title">Форма записи на прием</h2>
+    <div class="underline"></div>
+    <form id="appointment-form" class="appointment-form" method="POST" action="{% url 'appointment_submit' %}">
+        {% csrf_token %}
+        <input type="text" id="fullName" name="fullName" placeholder="Введите ФИО" pattern="[A-Za-zА-Яа-яЁё\s]+" title="Введите только буквы" required>
         <input type="email" id="email" name="email" placeholder="Введите email" required>
-      <input type="date" id="appointmentDate" name="appointmentDate" required>
-
-      <!-- Добавлено поле выбора времени -->
-      <select id="appointmentTime" name="appointmentTime" required>
-          <option value="">Выберите время</option>
-          <!-- Генерация вариантов времени с интервалом 40 минут от 10:00 до 19:00 -->
-          <!-- Используем JavaScript для генерации вариантов -->
-          <script>
-              // Создаем варианты времени с интервалом 40 минут от 10:00 до 19:00
-              var startTime = new Date();
-              startTime.setHours(10, 0, 0, 0); // Устанавливаем начальное время 10:00
-
-              // Создаем варианты времени с интервалом 40 минут
-              var appointmentTimeSelect = document.getElementById('appointmentTime');
-              for (var i = 0; i < 18; i++) { // Создаем 18 вариантов, пока не превысим 19:00
-                  var option = document.createElement('option');
-                  option.text = startTime.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
-                  option.value = startTime.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
-                  appointmentTimeSelect.add(option);
-                  startTime.setMinutes(startTime.getMinutes() + 40); // Увеличиваем время на 40 минут
-                  if(startTime.getHours() >= 19) break; // Прекращаем создание вариантов после 19:00
-              }
-          </script>
-      </select>
-
-      <select id="service" name="service" required>
-          <option value="">Выберите услугу</option>
-          <option value="Постановка, автоматизация, дифференциация звуков">Постановка, автоматизация, дифференциация звуков</option>
-          <option value="Артикуляционная гимнастика">Артикуляционная гимнастика</option>
-          <option value="Логопедический массаж">Логопедический массаж</option>
-          <option value="Логопедическое тейпирование">Логопедическое тейпирование</option>
-          <option value="Развитие внимания, памяти и мышления">Развитие внимания, памяти и мышления</option>
-          <option value="Развитие внимания, памяти и мышления">Бесплатная консультация</option>
-      </select>
-
-      <div class="form-group">
-          <input type="checkbox" id="agree" name="agree" required>
-          <label for="agree">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
-      </div>
-      <button type="submit">Записаться</button>
-  </form>
-    {% if messages %}
-      <ul class="messages">
-          {% for message in messages %}
-              <li>{{ message }}</li>
-          {% endfor %}
-      </ul>
-  {% endif %}
-</section>
-
-<footer>
-  <div class="footer-column">
-    <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
-  </div>
-  <div class="footer-column">
-    <h3>Контакты</h3>
-    <p>+7(908)506-86-97</p>
-    <p>shapovalova.ale@yanndex.ru</p>
-    <p>г.Новочеркасск, р-н Молодежный, Речная 38</p>
-  </div>
-  <div class="footer-column">
-    <h3>Режим работы</h3>
-    <p>с 10:00 до 19:00 (пн-Сб)</p>
-  </div>
-  <div class="footer-column">
-    <h3>Мои соц. сети</h3>
-    <div class="social-icons">
-      <a href="https://vk.com/id461825566"><img src="{% static 'img/vk.png' %}" alt="Vk"></a>
-      <a href="https://wa.me/79085068697"><img src="{% static 'img/wats.png' %}" alt="Whatsapp"></a>
-      <a href="https://t.me/Alenahapovalova"><img src="{% static 'img/tg.png' %}" alt="Telegram"></a>
+        <input type="date" id="appointmentDate" name="appointmentDate" required>
+        <select id="appointmentTime" name="appointmentTime" required>
+            <option value="">Выберите время</option>
+            {% for time in available_times %}
+            <option value="{{ time }}">{{ time }}</option>
+            {% endfor %}
+        </select>
+        <select id="service" name="service" required>
+            <option value="">Выберите услугу</option>
+            {% for service in services %}
+            <option value="{{ service.title }}">{{ service.title }}</option>
+            {% endfor %}
+        </select>
+        <div class="form-group">
+            <input type="checkbox" id="agree" name="agree" required>
+            <label for="agree">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
+        </div>
+        <button type="submit">Записаться</button>
+    </form>
+{% if messages %}
+<div class="messages-container">
+    <div class="messages">
+        {% for message in messages %}
+        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        {% endfor %}
     </div>
-  </div>
-</footer>
-<script src="{% static 'js/form.js' %}"></script>
-</body>
-</html>
+</div>
+{% endif %}
+</section>
+{% block scripts %}
+    <script src="{% static 'js/form1.js' %}"></script>
+    <script src="{% static 'js/form.js' %}"></script>
+    <script src="{% static 'js/opisanie.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+{% endblock %}

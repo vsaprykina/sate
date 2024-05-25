@@ -1,0 +1,30 @@
+{% extends 'admin/base_site.html' %}
+
+{% block object-tools-items %}
+    <li>
+        <a href="{% url 'admin_service_add' %}" class="addlink">
+            Добавить услугу
+        </a>
+    </li>
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <div class="services-container">
+        {% for service in object_list %}
+            <div class="service-card">
+                <div class="service-image">
+                    <img src="{{ service.image.url }}" alt="{{ service.title }}">
+                </div>
+                <div class="service-info">
+                    <h3>{{ service.title }}</h3>
+                    <p>{{ service.description }}</p>
+                    <p>Продолжительность: {{ service.duration }}</p>
+                    <p>Стоимость: {{ service.price }} рублей</p>
+                    <a href="{% url 'admin_service_change' service.id %}" class="button3">Редактировать</a>
+                    <a href="{% url 'admin_service_delete' service.id %}" class="button3">Удалить</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

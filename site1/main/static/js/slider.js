@@ -1,6 +1,9 @@
+// Объявляем переменные в начале
+let prevButton, nextButton, slideIndex = 0;
+
 // Получаем кнопки "Prev" и "Next"
-let prevButton = document.querySelector('.prev');
-let nextButton = document.querySelector('.next');
+prevButton = document.querySelector('.prev');
+nextButton = document.querySelector('.next');
 
 // Добавляем обработчики событий
 prevButton.addEventListener('click', () => {
@@ -11,7 +14,6 @@ nextButton.addEventListener('click', () => {
   plusSlides(1);
 });
 
-let slideIndex = 0;
 showSlides();
 
 function plusSlides(n) {

@@ -2,8 +2,8 @@ from django.db import models
 from django.utils.text import slugify
 class Service(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField(default='Описание услуги')
     duration = models.CharField(max_length=50)
+    description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='services/img/', default='services/img/default.jpg')
     class Meta:

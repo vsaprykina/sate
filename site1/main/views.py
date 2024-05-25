@@ -31,8 +31,19 @@ def index(request):
                 email=email,
                 message=message
             )
-            return redirect('index')
-    return render(request, 'index.html')
+            messages.success(request, 'Спасибо за обращение! Мы скоро вам ответим.')
+            return redirect('index#contact-form')
+
+    featured_articles = Article.objects.filter(is_featured=True)[:4]
+    other_articles = Article.objects.filter(is_featured=False)
+    all_articles = Article.objects.all()
+    testimonials = Testimonial.objects.all()
+    return render(request, 'index.html', {
+        'featured_articles': featured_articles,
+        'other_articles': other_articles,
+        'all_articles': all_articles,
+        'testimonials': testimonials,
+    })
 
 def index_question_view(request):
     if request.method == 'POST':
@@ -68,7 +79,7 @@ def index_question_view(request):
 def services(request):
     services = Service.objects.all()
     appointment_form = AppointmentForm()
-    available_times = ['10:00', '10:40', '11:20', '12:00', '12:40', '13:20', '14:00', '14:40', '15:20', '16:00', '16:40', '17:20', '18:00']
+    available_times = ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00']
 
     if request.method == 'POST':
         appointment_form = AppointmentForm(request.POST)
@@ -80,7 +91,9 @@ def services(request):
             recipient_list = [settings.ADMIN_EMAIL]
             send_mail(subject, message, sender_email, recipient_list)
             messages.success(request, 'Ваша заявка успешно отправлена.')
-            return redirect('services')
+            return redirect('services#appointment-form')
+        else:
+            print("Appointment form is not valid")
 
     return render(request, 'services.html', {'services': services, 'appointment_form': appointment_form, 'available_times': available_times})
 

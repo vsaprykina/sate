@@ -1,84 +1,55 @@
+{% extends 'layout.html' %}
 {% load static %}
 
+{% block title %}Обо мне{% endblock %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Обо мне</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
-</head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Главная</a></li>
-                <li><a href="{% url 'services' %}">Услуги</a></li>
-                <li><a href="{% url 'contacts' %}">Контакты</a></li>
-                <li><a href="{% url 'about' %}">Обо мне</a></li>
-            </ul>
-        </nav>
-        <div class="appointment">
-            <a href="{% url 'services' %}#appointment-form" class="button">Записаться на приём</a>
-        </div>
-    </header>
+{% block styles %}
+{% endblock %}
 
-    <section class="about-me-section" style="background-image: url('{% static 'img/фон3.PNG' %}');">
+{% block content %}
+    <section class="about-me-section1" style="background-image: url('{% static 'img/фон3.PNG' %}');">
 
-          <h2 class="about-me-title">Обо мне</h2>
+          <h2 class="about-me-title1">Обо мне</h2>
           <div class="underline1"></div>
-                <div class="about-me-container">
-                  <div class="about-me-text">
-            <p>
+                <div class="about-me-container1">
+                  <div class="about-me-text1">
+            <p class="about-me-text1">
               Я Елена Николаевна Шаповалова в первую очередь многодетная мама. <br>В своей профессиональной деятельности для меня важно заниматься повышением<br> квалификации и своим саморазвитием.
             </p>
           </div>
-          <div class="about-me-content">
+          <div class="about-me-content1">
 
-            <div class="advantages">
-              <div class="advantage-card">
+            <div class="advantages1">
+              <div class="advantage-card1">
                 <p>В 2023 году прошла <br>квалификационное повышение <br>по программе <br>"Логопедическое тейпирование в системе<br> комплексной коррекционной работы <br>по преодолению речевых нарушений"</p>
               </div>
-              <div class="advantage-card">
+              <div class="advantage-card1">
                 <p>Прошла профессиональную <br>переподготовку в Академии <br>психологии и педагогики</p>
               </div>
-              <div class="advantage-card">
+              <div class="advantage-card1">
                 <p>В 2019 году прошла<br> профессиональную <br>переподготовку<br> в Московской академии</p>
               </div>
-              <div class="advantage-card">
+              <div class="advantage-card1">
                 <p>В 2016 году освоила <br>программу бакалавриата по<br> направлению<br> педагогическое образование</p>
               </div>
-              <div class="advantage-card">
+              <div class="advantage-card1">
                 <p>В 2022 году прошла повышение<br> квалификации по профессиональной <br>программе "Логопедический массаж<br> в комплексной системе<br> преодоления речевых нарушений"</p>
               </div>
 
-              <div class="advantage-card">
+              <div class="advantage-card1">
                 <p>В 2005 году окончила<br> Донской Педагогический <br>Колледж</p>
               </div>
             </div>
           </div>
-          <div class="about-me-photo">
-            <div class="photo-frame">
+          <div class="about-me-photo1">
+            <div class="photo-frame1">
               <img src="{% static 'img/фотка5.png' %}" alt="Your Photo">
             </div>
           </div>
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-<section class="certificate-section">
+<section class="certificate-section" id="certificate-section" style="background-image: url('{% static 'img/фон3.PNG' %}');">
     <div class="title1">
         <h2>Сертификаты</h2>
         <hr class="underline">
@@ -174,30 +145,7 @@
         <img src="{% static 'img/серт12.jpg' %}" alt="Полноразмерный сертификат">
     </div>
 </div>
-<footer>
-    <div class="footer-column">
-      <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
-    </div>
-    <div class="footer-column">
-      <h3>Контакты</h3>
-      <p>+7(908)506-86-97</p>
-      <p>shapovalova.ale@yanndex.ru</p>
-      <p>г.Новочеркасск, р-н Молодежный, Речная 38</p>
-    </div>
-    <div class="footer-column">
-      <h3>Режим работы</h3>
-      <p>с 10:00 до 19:00 (пн-Сб)</p>
-    </div>
-    <div class="footer-column">
-      <h3>Мои соц. сети</h3>
-      <div class="social-icons">
-        <a href="https://vk.com/id461825566"><img src="{% static 'img/vk.png' %}" alt="Vk"></a>
-        <a href="https://wa.me/79085068697"><img src="{% static 'img/wats.png' %}" alt="Whatsapp"></a>
-        <a href="https://t.me/Alenahapovalova"><img src="{% static 'img/tg.png' %}" alt="Telegram"></a>
-      </div>
-    </div>
-  </footer>
-<script src="{% static 'js/script.js' %}"></script>
-
-</body>
-</html>
+{% block scripts %}
+    <script src="{% static 'js/script.js' %}"></script>
+{% endblock %}
+{% endblock %}

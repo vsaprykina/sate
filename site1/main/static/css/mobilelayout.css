@@ -1,0 +1,47 @@
+@media (max-width: 767px) {
+
+  header {
+    padding: 8px 20px;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  nav ul li {
+    margin-right: 12px;
+  }
+
+  nav ul li a {
+    font-size: 14px;
+  }
+
+  .appointment a {
+    font-size: 12px;
+    padding: 6px 12px;
+    margin: 0 30px;
+  }
+
+
+
+
+  footer {
+    padding: 15px;
+    margin-bottom: -40px;
+  }
+
+  .footer-column {
+    width: auto;
+    margin-bottom: 15px;
+  }
+
+  .footer-column img {
+    max-width: 30%;
+  }
+
+  .social-icons img {
+    width: 25px;
+    margin-right: 8px;
+  }
+
+}

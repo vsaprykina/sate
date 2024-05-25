@@ -79,7 +79,10 @@ WSGI_APPLICATION = 'site1.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'OPTIONS': {
+            'timeout': 20,
+        },
     }
 }
 
@@ -129,12 +132,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Настройки для отправки электронных писем
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
+# Порт для SMTP сервера Gmail
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'logopednovoherkassk@gmail.com'
-EMAIL_HOST_PASSWORD = 'logoped227'
-
-DEFAULT_FROM_EMAIL = 'logopednovoherkassk@gmail.com'
-ADMIN_EMAIL = 'logopednovoherkassk@gmail.com'  
+# Использовать TLS (Transport Layer Security) для защиты соединения
+EMAIL_HOST_USER = 'logopedelenanovocherkassk@gmail.com'
+# Ваша учетная запись Gmail для отправки писем
+EMAIL_HOST_PASSWORD = 'hxyk lrxw zmqw nat'
+# Специальный пароль при использовании двухфакторной аутентификации

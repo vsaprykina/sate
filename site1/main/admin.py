@@ -3,6 +3,9 @@ from .models import Service, Appointment
 from .models import Article
 from .models import Testimonial
 from .models import Question
+from django.conf import settings
+from django.core.mail import send_mail
+
 @admin.register(Service)
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('title', 'duration', 'price')
@@ -11,21 +14,44 @@ class ServiceAdmin(admin.ModelAdmin):
 @admin.register(Appointment)
 class AppointmentAdmin(admin.ModelAdmin):
     list_display = ('full_name', 'email', 'appointment_date', 'appointment_time', 'service', 'status', 'approved')
-    list_filter = ('status',)
+    list_filter = ('status', 'approved')
     actions = ['accept_appointments', 'reject_appointments']
 
-    def get_queryset(self, request):
-        qs = super().get_queryset(request)
-        return qs
-
     def accept_appointments(self, request, queryset):
-        queryset.update(status='Approved', approved=True)
-    accept_appointments.short_description = "Accept selected appointments"
+        for appointment in queryset:
+            appointment.status = 'Approved'
+            appointment.approved = True
+            appointment.save()
+            self.send_approval_email(appointment)
+    accept_appointments.short_description = "Одобрить выбранные заявки"
 
     def reject_appointments(self, request, queryset):
-        queryset.update(status='Rejected', approved=False)
-    reject_appointments.short_description = "Reject selected appointments"
+        for appointment in queryset:
+            appointment.status = 'Rejected'
+            appointment.approved = False
+            appointment.save()
+            self.send_rejection_email(appointment)
+    reject_appointments.short_description = "Отклонить выбранные заявки"
 
+    def send_approval_email(self, appointment):
+        subject = "Ваша заявка одобрена"
+        message = f"""
+        Здравствуйте {appointment.full_name},
+        Ваша заявка на прием по услуге "{appointment.service}" на {appointment.appointment_date} в {appointment.appointment_time} одобрена.
+        """
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = appointment.email
+        send_mail(subject, message, from_email, [to_email], fail_silently=False)
+
+    def send_rejection_email(self, appointment):
+        subject = "Ваша заявка отклонена"
+        message = f"""
+        Здравствуйте {appointment.full_name},
+        Ваша заявка на прием по услуге "{appointment.service}" на {appointment.appointment_date} в {appointment.appointment_time} отклонена.
+        """
+        from_email = settings.DEFAULT_FROM_EMAIL
+        to_email = appointment.email
+        send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
@@ -38,17 +64,15 @@ class QuestionAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if 'response' in form.changed_data:
             obj.is_answered = True
-            self.send_response_email(obj)
+            self.send_response_email(request, obj)
         super().save_model(request, obj, form, change)
 
-    def send_response_email(self, question):
-        subject = 'Ответ на ваш вопрос'
-        body = f"Здравствуйте, {question.full_name}!\n\nВот ответ на ваш вопрос:\n\n{question.response}"
+    def send_response_email(self, request, obj):
+        subject = "Ответ на ваш вопрос"
+        message = f"Спасибо за ваше обращение {obj.full_name}, мы ответили на ваш вопрос:\n\n{obj.message}\n\nОтвет:\n{obj.response}"
         from_email = settings.DEFAULT_FROM_EMAIL
-        to_email = question.email
-        send_mail(subject, body, from_email, [to_email], fail_silently=False)
-
-
+        to_email = obj.email
+        send_mail(subject, message, from_email, [to_email], fail_silently=False)
 
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
@@ -56,7 +80,5 @@ class ArticleAdmin(admin.ModelAdmin):
     list_filter = ('is_featured', 'created_at')
     search_fields = ('title', 'content')
     prepopulated_fields = {'slug': ('title',)}
-
-
 
 admin.site.register(Testimonial)
