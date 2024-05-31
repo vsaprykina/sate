@@ -28,15 +28,28 @@ header {
   width: 100%;
   z-index: 1000;
   background-color: #fed3f4;
-  color: white;
+  color: #333;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
+  box-sizing: border-box;
+}
+
+.logo {
+  flex-shrink: 0;
+  max-width: 20%;
 }
 
 .logo img {
   height: 40px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 0;
+  max-width: 60%;
 }
 
 nav ul {
@@ -44,10 +57,11 @@ nav ul {
   margin: 0;
   padding: 0;
   display: flex;
+  white-space: nowrap;
 }
 
 nav ul li {
-  margin-right: 20px;
+  margin-right: 30px;
 }
 
 nav ul li:last-child {
@@ -58,10 +72,28 @@ nav ul li a {
   text-decoration: none;
   color: #333;
   font-size: 16px;
+  position: relative;
 }
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #3D5F31;
+  transition: width 0.3s;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
 .appointment {
-  display: flex;
-  align-items: center;
+  flex-shrink: 0;
+  max-width: 20%;
+  margin-left: auto;
 }
 
 .appointment a {
@@ -69,26 +101,33 @@ nav ul li a {
   color: #CA8CCD;
   font-size: 14px;
   padding: 8px 16px;
-  border: 2px solid #3D5F31;
+  border: 2px solid #CA8CCD;
   border-radius: 20px;
   transition: background-color 0.3s, color 0.3s;
-  margin: 0 70px; /* Добавляем отступы справа и слева */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
 }
 
 .appointment a:hover {
   background-color: #CA8CCD;
-  color: white;
+  color: #fff;
 }
-nav ul li a:hover::after {
-  content: '';
-  display: block;
-  width: 100%;
-  height: 2px;
-  background-color: #3D5F31; /* Цвет палочки */
+nav {
+  display: flex !important;
+  justify-content: center;
+  flex-grow: 0;
+  max-width: 60%;
+  margin-left: 352px !important;
 }
 
 
-
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+}
 footer {
   display: flex;
   justify-content: space-between;
@@ -110,10 +149,81 @@ footer {
   width: 30px;
   margin-right: 10px;
 }
+  .logo1-container {
+    order: 0; /* Логотип возвращен в исходное положение */
+    margin-bottom: 0; /* Отступ снизу для логотипа убран */
+    justify-content: flex-start; /* Логотип слева в десктопной версии */
+  }
+
+.logo1 img{
+width: 90px;
+}
+
+.footer-column {
+  flex-basis: 25%;
+  padding: 0 20px;
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-column p {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.footer-column a {
+  color: #333;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: #3D5F31;
+}
 
 
 
+.button1:hover {
+  background-color: #A566B0;
+}
 
+.welcome-section {
+  position: relative;
+  background-image: url('{% static "img/фон.png" %}');
+  background-size: cover;
+  background-position: center;
+  padding: 80px 115px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  color: #000000;
+  height: 100vh;
+}
+
+.welcome-text {
+  font-size: 31px;
+  text-align: left;
+  color: #434040;
+  margin-top: -45px;
+  max-width: 800px;
+  padding-right: 40px;
+  margin-left: 28px;
+}
+
+.welcome-text h1.section-title {
+  font-size: 40px;
+  margin-bottom: 20px;
+   text-align: left;
+}
+
+.welcome-text p {
+  font-size: 29px;
+  margin-bottom: 20px;
+   text-align: left;
+}
 
 .button1 {
   padding: 15px 40px;
@@ -129,49 +239,18 @@ footer {
   padding-bottom: 20px;
   position: relative;
   top: 20px;
-  margin-left: 60px;
-
-}
-
-.button1:hover {
-  background-color: #A566B0;
-}
-
-/* Welcome Section */
-.welcome-section {
-  position: relative;
-  background-image: url('{% static "img/фон.png" %}');
-  background-size: cover;
-  background-position: center;
-  padding: 80px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #000000;
-  height: 100vh;
-}
-
-.welcome-text {
-  font-size: 31px;
-  padding-left: 150px;
-  flex: 1;
-  color: #434040;
-  margin-top: -45px;
-}
-
-
-.welcome-text p {
-  font-size: 29px;
-  margin-bottom: 20px;
+   text-align: left;
 }
 
 .image-container {
-  flex: 1;
-  display: flex;
+  width: 100%;
+  height: auto;
+  margin-left: 41px;
+}
 
-  width: 60%;
-  height: 60%;
-  margin-right: 200px;
+.image-container img {
+  max-width: 90%;
+  height: auto;
 }
 
 /* Underline */
@@ -955,7 +1034,18 @@ footer {
 .contact-address, .contact-email, .contact-location {
   color: #000;
 }
+.contact-address a,
+.contact-email a,
+.contact-location a {
+  color: #333;
+  text-decoration: none;
+}
 
+.contact-address a:hover,
+.contact-email a:hover,
+.contact-location a:hover {
+  color: #3D5F31;
+}
 .map-container {
   width: 50%;
   height: 300px;
@@ -1034,131 +1124,107 @@ footer {
   width: 100px;
 }
 
-.about-me {
-  background-image: url('./фон2.PNG');
-  background-size: cover;
-  background-position: center;
-  padding: 50px 0;
-  color: #000000;
-  text-align: center;
-  height: 100vh; /* Устанавливаем высоту секции на 100% видимой области страницы */
-  display: flex;
-  justify-content: center; /* Центрируем содержимое по горизонтали */
-  align-items: center; /* Центрируем содержимое по вертикали */
+
+/* Первая секция с фотографией логопеда */
+.about-me-section1 {
+position: relative;
+background-size: cover;
+background-position: center;
+padding: 40px 20px;
 }
-
-.about-me-section2 {
-  background-size: cover;
-  background-position: center;
-  padding: 50px 0;
+.about-me-container1 {
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+color: #000000;
+height: auto;
+margin-bottom: 40px;
 }
-
-.about-me-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+.about-me-content1 {
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content: center;
+margin-right: 20px;
 }
-
-.about-me-title {
-  margin-bottom: 20px;;
-  height: 10px;
-  margin-top: 20px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100px;
-font-size: 26px;
-
+.about-me-text1 {
+font-size: 16px;
+text-align: left;
+color: #434040;
 }
-
-
-.about-me-text {
-  font-size: 20px;
-
-
+.about-me-title1 {
+font-size: 28px;
+margin-bottom: 10px;
+text-align: left;
 }
 .underline1 {
-  width: 100px;
-  height: 3px;
-  background-color: #3D5F31;
-  border: none;
-  margin-top: 17px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
+width: 80px;
+height: 3px;
+background-color: #3D5F31;
+margin-bottom: 16px;
 }
-
-.text {
-    flex: 1;
-    max-width: 600px;
-    text-align: left;
+.advantages1 {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 20px;
 }
-
-.text h2 {
-    border-bottom: 2px solid #3D5F31;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-align: center;
+.advantage-card1 {
+margin-bottom: 16px;
 }
-
-.text p {
-    margin-bottom: 20px;
+.about-me-photo1 {
+width: 50%;
+height: auto;
+margin-top: -20px; /* 向上移动 20 像素 */
 }
-
-.text ul {
-    list-style-type: none;
-    padding-left: 0;
+.about-me-photo1 img {
+max-width: 100%;
+height: auto;
 }
-
-.text ul li {
-    margin-bottom: 10px;
+.photo-frame1 {
+    max-width: 500px;
+    max-height: 497px;
+    margin-top: -619px;
+    margin-left: 753px;
 }
-
-.photo img {
-    margin-left: 50px;
-    max-width: 320px;
-    border-radius: 40px;
-
-}
-
-
-
+/* Секция "Сертификаты" */
 .certificate-section {
-  text-align: center;
-  background-image: url("./фон3.PNG");
-  background-size: cover; /* чтобы фон занимал всю доступную область */
-  background-position: center; /* чтобы фон был выровнен по центру */
-  padding: 50px 0; /* добавляем немного отступов сверху и снизу */
+  background-size: cover;
+  background-position: center;
+  padding: 40px 20px;
 }
 
+.title1 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.title1 h2 {
+  font-size: 24px;
+}
+
+.underline {
+  width: 80px;
+  height: 2px;
+  background-color: #3D5F31;
+  margin: 0 auto 24px;
+}
 
 .certificate-gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-gap: 20px;
 }
 
-.certificate-gallery .certificate-item{
-  margin: 10px;
-  border: 5px solid #000000; /* Добавляем рамку */
-  border-radius: 5px;
+.certificate-item {
+  text-align: center;
 }
 
 .certificate-item img {
-  width: 200px;
+  max-width: 100%;
   height: auto;
-  border-radius: 5px;
   cursor: pointer;
 }
 
-.certificate-item img.active {
-  width: 400px; /* Увеличение ширины активного изображения */
-}
-
-/* Добавьте стили для модального окна */
 #modal-container {
   display: none;
   position: fixed;
@@ -1167,22 +1233,13 @@ font-size: 26px;
   width: 100%;
   height: 100%;
   z-index: 1000;
-}
-
-.modal-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color:#3D5F31;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   background-color: white;
   padding: 20px;
   border-radius: 5px;
@@ -1192,10 +1249,18 @@ font-size: 26px;
   overflow: auto;
 }
 
+.modal-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
 .modal-close {
   position: absolute;
   top: 10px;
   right: 10px;
+  font-size: 24px;
+  color: #000;
   cursor: pointer;
 }
 
@@ -1669,3 +1734,59 @@ margin-right: 100px;
 .messages .error {
   color: red;
 }
+
+
+
+
+
+.privacy-policy {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.privacy-policy h1 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.privacy-policy h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.privacy-policy p,
+.privacy-policy li {
+  font-size: 20px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+/* mobile-privacy-policy.css */
+
+@media (max-width: 767px) {
+  .privacy-policy {
+    padding: 20px;
+  }
+
+  .privacy-policy h1 {
+    font-size: 28px;
+  }
+
+  .privacy-policy h2 {
+    font-size: 24px;
+  }
+
+  .privacy-policy p,
+  .privacy-policy li {
+    font-size: 16px;
+  }
+}
+
+

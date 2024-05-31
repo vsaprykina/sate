@@ -33,6 +33,7 @@ class AppointmentAdmin(admin.ModelAdmin):
             self.send_rejection_email(appointment)
     reject_appointments.short_description = "Отклонить выбранные заявки"
 
+
     def send_approval_email(self, appointment):
         subject = "Ваша заявка одобрена"
         message = f"""

@@ -10,15 +10,16 @@
 {% block content %}
 
 <section class="welcome-section" style="background-image: url('{% static 'img/фон.PNG' %}');">
+
     <div class="welcome-text">
       <h1 class="section-title">Добро пожаловать <br> на сайт логопеда!</h1>
-      <p>Меня зовут Елена, и я предлагаю <br>
-        профессиональную помощь<br>
-         в развитии речи вашего ребенка.</p>
+      <p>Профессиональная диагностика, <br>
+          консультация и коррекция<br>
+          нарушений речи</p>
       <a href="{% url 'services' %}#appointment-form" class="button1">Записаться на приём</a>
     </div>
-    <div class="image-container">
-      <img src="{% static 'img/фотка5.png' %}" alt="Логопед">
+       <div class="image-container">
+      <img src="{% static 'img/дите.png' %}" alt="Логопед">
     </div>
   </section>
 
@@ -183,7 +184,7 @@
         </div>
         <div class="form-group">
             <input type="checkbox" id="agree" name="agree" required>
-            <label for="agree">Я соглашаюсь с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">политикой конфиденциальности</a></label>
+            <label for="agree"> Я даю согласие на обработку моих персональных данных в соответствии с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a></label>
         </div>
         <button type="submit" class="submit-button">Отправить</button>
     </form>

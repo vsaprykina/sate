@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 
@@ -141,5 +141,5 @@ EMAIL_USE_TLS = True
 # Использовать TLS (Transport Layer Security) для защиты соединения
 EMAIL_HOST_USER = 'logopedelenanovocherkassk@gmail.com'
 # Ваша учетная запись Gmail для отправки писем
-EMAIL_HOST_PASSWORD = 'hxyk lrxw zmqw nat'
+EMAIL_HOST_PASSWORD = 'suff rnby lgcw npjf'
 # Специальный пароль при использовании двухфакторной аутентификации

@@ -7,45 +7,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block styles %}{% endblock %}
-     <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="{% static 'css/mobileindex.css' %}" media="(max-width: 767px)">
     <link rel="stylesheet" href="{% static 'css/tabletindex.css' %}" media="(min-width: 768px) and (max-width: 1199px)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    {% load static %}
 <header>
-    <div class="logo">
-        <a href="{% url 'index' %}">
-            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
-        </a>
-    </div>
-        <nav>
-            <ul>
-                <li><a href="{% url 'index' %}">Главная</a></li>
-                 <li><a href="{% url 'services' %}#ysligu">Услуги</a></li>
-                <li><a href="{% url 'contacts' %}">Контакты</a></li>
-                <li><a href="{% url 'about' %}">Обо мне</a></li>
-            </ul>
-        </nav>
-
-        <div class="appointment">
- <a href="{% url 'services' %}#appointment-form" class="button">Записаться на приём</a>
-        </div>
-    </header>
-
+  <div class="menu-toggle" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="logo">
+    <a href="{% url 'index' %}">
+      <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+    </a>
+  </div>
+  <nav id="nav-menu" class="nav-menu">
+    <ul>
+      <li><a href="{% url 'index' %}">Главная</a></li>
+      <li><a href="{% url 'services' %}#ysligu">Услуги</a></li>
+      <li><a href="{% url 'contacts' %}">Контакты</a></li>
+      <li><a href="{% url 'about' %}">Обо мне</a></li>
+    </ul>
+  </nav>
+  <div class="appointment">
+    <a href="{% url 'services' %}#appointment-form" class="button">Записаться на приём</a>
+  </div>
+</header>
     {% block content %}{% endblock %}
 
-<footer>
-    <div class="logo">
-        <a href="{% url 'index' %}">
-            <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
-        </a>
-    </div>
-        <div class="footer-column">
+    <footer>
+        <div class="logo1">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'img/Снимок3.png' %}" alt="Логотип">
+            </a>
+        </div>
+  <div class="footer-column">
             <h3>Контакты</h3>
-            <p>+7(908)506-86-97</p>
-            <p>shapovalova.ale@yanndex.ru</p>
-            <p>г.Новочеркасск, р-н Молодежный, Речная 38</p>
+            <p><a href="tel:+79085068697">+7(908)506-86-97</a></p>
+            <p><a href="mailto:logopedelenanovocherkassk@gmail.com">logopedelenanovocherkassk@gmail.com</a></p>
+            <p><a href="https://www.google.com/maps/search/?api=1&query=г.Новочеркасск, р-н Молодежный, Речная 38">г.Новочеркасск, р-н Молодежный, Речная 38</a></p>
         </div>
         <div class="footer-column">
             <h3>Режим работы</h3>
@@ -54,13 +56,14 @@
         <div class="footer-column">
             <h3>Мои соц. сети</h3>
             <div class="social-icons">
-                <a href="https://vk.com/id461825566"><img src="{% static 'img/vk.png' %}" alt="Vk"></a>
                 <a href="https://wa.me/79085068697"><img src="{% static 'img/wats.png' %}" alt="Whatsapp"></a>
+                  <a href="https://vk.com/id461825566"><img src="{% static 'img/vk.png' %}" alt="Vk"></a>
                 <a href="https://t.me/Alenahapovalova"><img src="{% static 'img/tg.png' %}" alt="Telegram"></a>
             </div>
         </div>
     </footer>
 
     {% block scripts %}{% endblock %}
+    <script src="{% static 'js/meni.js' %}"></script>
 </body>
 </html>

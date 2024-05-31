@@ -4,32 +4,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d18d15d-6288-427c-9adb-11b382cae217" name="Changes" comment="обновленные стили css">
+    <list default="true" id="7d18d15d-6288-427c-9adb-11b382cae217" name="Changes" comment="добавление адаптива для телефона страниц главная и услуги">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/site1/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/css/about.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/css/contacts.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/css/services.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/js/slider.js" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/js/slider.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/layout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/mobileabout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/mobilecontacts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/mobileindex.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/mobileindex.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/mobilelayout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/tablecontacts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/tabletabout.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/tabletindex.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/tabletser.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article10.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article3.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article4.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article5.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article6.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article7.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article8.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/article9.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/templates/contacts.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/contacts.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/privacy_policy.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/privacy_policy.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/site1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/site1/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -234,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716587447301</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="добавление адаптива для телефона страниц главная и услуги">
+      <option name="closed" value="true" />
+      <created>1716654347010</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716654347012</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +266,8 @@
     <MESSAGE value="Добавление статей в админ панель для их редактирования" />
     <MESSAGE value="Добавление формы обратной связи с возможностью отвечать на вопросы через админ панель" />
     <MESSAGE value="обновленные стили css" />
-    <option name="LAST_COMMIT_MESSAGE" value="обновленные стили css" />
+    <MESSAGE value="добавление адаптива для телефона страниц главная и услуги" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление адаптива для телефона страниц главная и услуги" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
