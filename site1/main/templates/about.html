@@ -7,40 +7,38 @@
 {% endblock %}
 
 {% block content %}
-    <section class="about-me-section1" style="background-image: url('{% static 'img/фон3.PNG' %}');">
-
-          <h2 class="about-me-title1">Обо мне</h2>
-          <div class="underline1"></div>
-                <div class="about-me-container1">
-                  <div class="about-me-text1">
-            <p class="about-me-text1">
-              Я Елена Николаевна Шаповалова в первую очередь многодетная мама. <br>В своей профессиональной деятельности для меня важно заниматься повышением<br> квалификации и своим саморазвитием.
-            </p>
-          </div>
-          <div class="about-me-content1">
-
-            <div class="advantages1">
-              <div class="advantage-card1">
-                <p>В 2023 году прошла <br>квалификационное повышение <br>по программе <br>"Логопедическое тейпирование в системе<br> комплексной коррекционной работы <br>по преодолению речевых нарушений"</p>
-              </div>
-              <div class="advantage-card1">
-                <p>В 2016 году освоила <br>программу бакалавриата по<br> направлению<br> педагогическое образование</p>
-              </div>
-              <div class="advantage-card1">
-                <p>В 2022 году прошла повышение<br> квалификации по профессиональной <br>программе "Логопедический массаж<br> в комплексной системе<br> преодоления речевых нарушений"</p>
-              </div>
-              <div class="advantage-card1">
-                <p>В 2005 году окончила<br> Донской Педагогический <br>Колледж</p>
-              </div>
-            </div>
-          </div>
-          <div class="about-me-photo1">
-            <div class="photo-frame1">
-              <img src="{% static 'img/фотка5.png' %}" alt="Your Photo">
-            </div>
-          </div>
+<section class="about-me-section">
+  <div class="about-me-container">
+    <div class="about-me-text-container">
+      <div class="title1">
+        <h2>Обо мне</h2>
+        <div class="underline"></div>
+      </div>
+      <p class="about-me-text">
+        Я Елена Николаевна Шаповалова в первую очередь многодетная мама. <br>В своей профессиональной деятельности для меня важно заниматься повышением<br> квалификации и своим саморазвитием.
+      </p>
+      <div class="advantages">
+        <div class="advantage-card">
+          <h3 class="advantage-title">Квалификация</h3>
+          <ul class="advantage-list">
+            <li>2023 год: Квалификационное повышение по программе "Логопедическое тейпирование в системе комплексной коррекционной работы по преодолению речевых нарушений"</li>
+            <li>Прошла профессиональную переподготовку в Академии психологии и педагогики</li>
+            <li>2019 год: Профессиональная переподготовка в Московской академии</li>
+            <li>2016 год: Программа бакалавриата по направлению педагогическое образование</li>
+            <li>2022 год: Повышение квалификации по профессиональной программе "Логопедический массаж в комплексной системе преодоления речевых нарушений"</li>
+            <li>2005 год: Окончила Донской Педагогический Колледж</li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </div>
+    <div class="about-me-photo-container">
+      <div class="background-image" style="background-image: url('{% static 'img/фон3.PNG' %}'); width: 100vw; left: 50%; transform: translateX(-50%);"></div>
+      <div class="photo-frame">
+        <img src="{% static 'img/фотка5.png' %}" alt="Your Photo">
+      </div>
+    </div>
+  </div>
+</section>
 
 <section class="certificate-section" id="certificate-section" style="background-image: url('{% static 'img/фон3.PNG' %}');">
     <div class="title1">

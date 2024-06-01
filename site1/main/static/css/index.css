@@ -1125,67 +1125,7 @@ width: 90px;
 }
 
 
-/* Первая секция с фотографией логопеда */
-.about-me-section1 {
-position: relative;
-background-size: cover;
-background-position: center;
-padding: 40px 20px;
-}
-.about-me-container1 {
-display: flex;
-flex-direction: row;
-align-items: flex-start;
-color: #000000;
-height: auto;
-margin-bottom: 40px;
-}
-.about-me-content1 {
-width: 50%;
-display: flex;
-flex-direction: column;
-justify-content: center;
-margin-right: 20px;
-}
-.about-me-text1 {
-font-size: 16px;
-text-align: left;
-color: #434040;
-}
-.about-me-title1 {
-font-size: 28px;
-margin-bottom: 10px;
-text-align: left;
-}
-.underline1 {
-width: 80px;
-height: 3px;
-background-color: #3D5F31;
-margin-bottom: 16px;
-}
-.advantages1 {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-gap: 20px;
-}
-.advantage-card1 {
-margin-bottom: 16px;
-}
-.about-me-photo1 {
-width: 50%;
-height: auto;
-margin-top: -20px; /* 向上移动 20 像素 */
-}
-.about-me-photo1 img {
-max-width: 100%;
-height: auto;
-}
-.photo-frame1 {
-    max-width: 500px;
-    max-height: 497px;
-    margin-top: -619px;
-    margin-left: 753px;
-}
+
 /* Секция "Сертификаты" */
 .certificate-section {
   background-size: cover;
@@ -1414,58 +1354,7 @@ height: auto;
   margin-right: auto;
 }
 
-.about-me {
-  background-image: url('./фон2.PNG');
-  background-size: cover;
-  background-position: center;
-  padding: 50px 0;
-  color: #000000;
-  text-align: center;
-  height: 100vh; /* Устанавливаем высоту секции на 100% видимой области страницы */
-  display: flex;
-  justify-content: center; /* Центрируем содержимое по горизонтали */
-  align-items: center; /* Центрируем содержимое по вертикали */
-}
 
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.text {
-    flex: 1;
-    max-width: 600px;
-    text-align: left;
-}
-
-.text h2 {
-    border-bottom: 2px solid #3D5F31;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.text p {
-    margin-bottom: 20px;
-}
-
-.text ul {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.text ul li {
-    margin-bottom: 10px;
-}
-
-.photo img {
-    margin-left: 50px;
-    max-width: 320px;
-    border-radius: 40px;
-
-}
 
 
 
@@ -1557,133 +1446,6 @@ height: auto;
   margin-top: -40px;
  }
 
-
-.about-me-section1 {
-  background-size: cover;
-  background-position: center;
-  padding: 50px 0;
-}
-
-.about-me-container1 {
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-.about-me-title1 {
-  margin-bottom: 41px;;
-  height: 2px;
-  margin-top: 20px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100px;
-  font-size: 23px;
-
-}
-
-
-.about-me-text1 {
-  font-size: 19px;
-  margin-top: 22px;
-margin-right: 100px;
-
-}
-.underline1 {
-  width: 100px;
-  height: 3px;
-  background-color: #3D5F31;
-  border: none;
-  margin-top: 35px;
-  width: 100px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.advantages1 {
-  column-count: 2; /* Разбиваем контейнер на две колонки */
-  column-gap: 20px; /* Задаем расстояние между колонками */
-  margin-top: 10px;
-}
-
-.advantage-card1 {
-  break-inside: avoid-column; /* Предотвращаем разбиение карточек на разные колонки */
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 35px;
-  box-shadow: 0px 0px 10px #e3dbdb;
-  transition: transform 0.3s ease;
-  transform-origin: center center;
-  margin-bottom: 20px; /* Отступ между карточками */
-}
-
-.advantage-card1 p {
-  font-size: 15px;
-  margin: 0;
-}
-
-.advantage-card1:hover {
-  transform: scale(0.9);
-}
-
-
-.photo-frame1 {
-
-  max-width: 500px; /* Максимальная ширина рамки */
-  max-height: 497px; /* Максимальная высота рамки */
-  margin-top: -500px; /* Увеличиваем отрицательный отступ, чтобы поднять фото выше */
-  margin-left: 800px;
-}
-
-
-.photo-frame1 img {
-  width: 380px; /* Фото будет занимать всю доступную ширину в рамке */
-  max-width: 380px; /* Фото не будет превышать ширину рамки */
-  height: auto; /* Высота будет автоматически рассчитана, чтобы сохранить пропорции */
-}
-
-
-
-.section-title {
-  text-align: center;
-  margin-bottom: 20px;
-  font-weight: normal;
-  padding-top: 20px;
-}
-
-.section-title h2 {
-  font-size: 24px;
-  color: #000000;
-  font-weight: normal;
-}
-
-.underline {
-  width: 100px;
-  height: 3px;
-  background-color: #3D5F31;
-  border: none;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.welcome-section h1 {
-  font-size: 31px;
-  font-weight: normal;
-  padding-top: 20px;
-}
-
-.advantages .title1 {
-  margin-bottom: 20px;
-}
-
-.advantages .title1 h2 {
-  font-size: 24px;
-  font-weight: normal;
-  padding-top: 20px;
-}
 
 .certificate-section .title1 h2 {
   font-size: 24px;
@@ -1790,3 +1552,176 @@ margin-right: 100px;
 }
 
 
+
+
+.about-me-section {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.about-me-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.about-me-text-container {
+  width: 50%;
+  padding: 60px 40px; /* Увеличили отступ сверху */
+  box-sizing: border-box;
+
+}
+
+.about-me-photo-container {
+  width: 40%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  overflow: hidden;
+      left: 5%;
+}
+
+.about-me-title {
+font-size: 28px;
+margin-bottom: 10px;
+text-align: left;
+}
+
+.underline {
+  width: 50px;
+  height: 2px;
+  background-color: #333;
+  margin-bottom: 20px;
+}
+
+.about-me-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+
+.advantage-card {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-top: -11%;
+}
+
+.advantage-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.advantage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advantage-list li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.advantage-list li::before {
+  content: "\2022";
+  color: #333;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.photo-frame {
+  z-index: 1;
+  width: 80%;
+  height: auto;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+
+.underline {
+  width: 100px;
+  height: 3px;
+  background-color: #3D5F31;
+  border: none;
+  margin-top: 5px;
+  margin: 0 auto 24px;
+}
+
+.about-me-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}.advantages {
+  margin-top: 20px;
+}
+
+.advantage-card {
+  background-color: #fed3f4;
+  color: #333;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.advantage-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.advantage-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.advantage-list li {
+  margin-bottom: 10px;
+  position: relative;
+  padding-left: 20px;
+}
+
+.advantage-list li::before {
+  content: "\2022";
+  color: #333;
+  font-size: 18px;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.title1 {
+    margin-top: 36px;
+}
