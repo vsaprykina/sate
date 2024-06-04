@@ -6,9 +6,7 @@ class Service(models.Model):
     description = models.TextField(null=True, blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     image = models.ImageField(upload_to='services/img/', default='services/img/default.jpg')
-    class Meta:
-        verbose_name = 'Услуга'
-        verbose_name_plural = 'Услуги'
+
 
 class Appointment(models.Model):
     full_name = models.CharField(max_length=100)
@@ -21,9 +19,7 @@ class Appointment(models.Model):
 
     def __str__(self):
         return f"{self.full_name} - {self.service}"
-    class Meta:
-        verbose_name = 'Заявка'
-        verbose_name_plural = 'Заявки на приём'
+
 
 
 class Question(models.Model):
@@ -37,9 +33,6 @@ class Question(models.Model):
     def __str__(self):
         return f"{self.full_name} - {self.email}"
 
-    class Meta:
-        verbose_name = 'Вопрос'
-        verbose_name_plural = 'Вопросы'
 class Article(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
@@ -54,9 +47,7 @@ class Article(models.Model):
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
 
-    class Meta:
-        verbose_name = 'Статья'
-        verbose_name_plural = 'Статьи'
+
 
 class Testimonial(models.Model):
     text = models.TextField(verbose_name='Текст отзыва')
@@ -64,6 +55,3 @@ class Testimonial(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
     updated_at = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
 
-    class Meta:
-        verbose_name = 'Отзыв'
-        verbose_name_plural = 'Отзывы'

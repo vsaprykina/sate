@@ -31,7 +31,35 @@
         </div>
     </section>
 
+<style>
+        input[type="date"]:before{
+    color:rgba(53, 53, 53, 0.44);
+    content:attr(placeholder);
+    }
+    input[type="date"].new:before {content: none;}
 
+input[type="date"].full:before {
+color:black;
+content:""!important;
+}
+
+input[type="time"]:before{
+color:rgba(53, 53, 53, 0.44);
+content:attr(placeholder);
+}
+
+input[type="time"].full:before {
+color:black;
+content:""!important;
+}
+    input[type="date"] {
+    font-size: 14px; /* Увеличиваем размер шрифта до 18px */
+}
+
+input[type="date"]:before {
+    font-size: 14px; /* Увеличиваем размер шрифта плейсхолдера до 18px */
+}
+</style>
 <section class="appointment-section" style="background-image: url('{% static 'img/фон2.PNG' %}');">
     <h2 class="section-title">Форма записи на прием</h2>
     <div class="underline"></div>
@@ -39,7 +67,7 @@
         {% csrf_token %}
         <input type="text" id="fullName" name="fullName" placeholder="Введите ФИО" pattern="[A-Za-zА-Яа-яЁё\s]+" title="Введите только буквы" required>
         <input type="email" id="email" name="email" placeholder="Введите email" required>
-        <input type="date" id="appointmentDate" name="appointmentDate" required>
+       <input class="checkDate" onchange="document.querySelector('.checkDate').className = 'new'; ;" type="date" id="appointmentDate" name="appointmentDate" placeholder="Выберите дату" value="Выберите дату" required>
         <select id="appointmentTime" name="appointmentTime" required>
             <option value="">Выберите время</option>
             {% for time in available_times %}
@@ -54,7 +82,7 @@
         </select>
         <div class="form-group">
             <input type="checkbox" id="agree" name="agree" required>
-            <label for="agree">Я даю согласие на обработку моих персональных данных в соответствии с<a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a></label>
+            <label for="agree">Я даю согласие на обработку моих персональных данных в соответствии с <a href="{% url 'privacy_policy' %}" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a></label>
         </div>
         <button type="submit">Записаться</button>
     </form>
@@ -62,7 +90,7 @@
 <div class="messages-container">
     <div class="messages">
         {% for message in messages %}
-        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
         {% endfor %}
     </div>
 </div>
