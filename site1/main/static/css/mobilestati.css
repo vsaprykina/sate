@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    background-image: url('/static/img/фон3.png');
+    background-color: rgba(240, 240, 240, 0.8);
+    background-size: cover;
+    background-position: center;
+}
+
+.article {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+p {
+    font-size: 20px;
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+    margin-bottom: 15px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    display: block;
+    width: 50%;
+    max-width: 100%;
+    margin: 30px auto;
+    border: 15px solid #3D5F3;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
+
+/* Стили для мобильных устройств */
+@media (max-width: 768px) {
+    .article {
+        padding: 20px;
+        margin: 20px;
+    }
+
+    h1 {
+        font-size: 23px;
+        margin-bottom: 20px;
+        padding: 0 20px; /* Добавляем отступы слева и справа */
+    }
+
+    p {
+        font-size: 16px;
+        margin-bottom: 10px;
+        padding: 0 20px; /* Добавляем отступы слева и справа */
+    }
+
+    img {
+        width: 70%;
+        margin: 20px auto;
+        border-width: 10px;
+        padding: 0 20px; /* Добавляем отступы слева и справа */
+    }
+}
+
+}
