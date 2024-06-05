@@ -4,11 +4,11 @@
   }
   header {
     padding: 10px 20px;
-    display:    justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: #fed3f4;
-  } flex;
-
+  }
 
   .logo {
     max-width: 20%;
@@ -64,37 +64,27 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .welcome-section {
-    padding: 80px 0;
+    padding: 60px 20px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
-    height: 120vh;
-    overflow: hidden; /* Добавлено, чтобы скрыть любые элементы, выходящие за пределы секции */
-  }
-
-  .image-container {
-    max-width: 100%;
-    text-align: center;
-    margin-top: -24%;
-    margin-left: 1%;
-    overflow: hidden; /* Добавлено, чтобы скрыть любые элементы, выходящие за пределы контейнера */
-  }
-
-  .image-container img {
-    max-width: 100%;
+    justify-content: center;
     height: auto;
+    min-height: 120vh;
+    background-image: url('{% static "img/фон.png" %}');
+    background-size: cover;
+    background-position: center;
   }
 
   .welcome-text {
-    font-size: 24px;
-    max-width: 600px;
     text-align: center;
-    margin-top: 6%;
+    margin-bottom: -100px;
+    margin-top: -248px;
   }
 
   .welcome-text h1.section-title {
     font-size: 36px;
-    margin-bottom: 20px;
+    margin-top: 197px;
   }
 
   .welcome-text p {
@@ -104,16 +94,68 @@
 
   .button1 {
     font-size: 18px;
-    padding: 15px 4px;
-    top: 2px;
-    display: block;
-    margin: 0 auto;
-    text-align: center;
-    line-height: 1;
+    padding: 12px 24px;
+    border-radius: 25px;
+    background-color: #3D5F31;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: -16px;
+    transition: background-color 0.3s;
   }
 
-  .background-image {
-    height: 70%;
+  .button1:hover {
+    background-color: #A566B0;
+  }
+
+  .image-container {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 8px;
+     margin-top: -451px;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+  .testimonial-container {
+    max-width: 547px;
+    margin: 0 auto;
+    position: relative;
+}
+.contact-form {
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 25px;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 12px;
+  }
+
+  .contact-form label {
+    font-size: 13px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 7px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .contact-form textarea {
+    height: 60px;
+  }
+
+  .contact-form button.submit-button {
+    width: 140px;
+    padding: 7px 14px;
+    font-size: 13px;
   }
 }
 @media (min-width: 1024px) {
@@ -127,7 +169,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   color: #000000;
-  height: 90vh;
+  height: 70vh;
     overflow: hidden;
 }
 
@@ -166,7 +208,7 @@
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  top: 20px;
+ margin-top: -13px;
   text-align: left;
 }
 
@@ -186,59 +228,8 @@ width: 127%;
   max-width: 100%;
   height: auto;
 }
+
 }
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  .certificatee-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .certificatee-item {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  .certificatee-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 0;
-    transition: transform 0.3s ease;
-  }
-
-  .certificatee-frame {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
-    border: 1px solid #333;
-    border-radius: 0;
-    box-sizing: border-box;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .certificatee-item:hover .certificate-frame {
-    opacity: 1;
-  }
-
-  .certificatee-item:hover img {
-    transform: scale(1.1);
-  }
-}
-
-
-
-
-
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -262,6 +253,29 @@ width: 127%;
 @media (min-width: 768px) and (max-width: 1024px) {
   .certificate-item img {
     width: 180px;
+  }
+}
+@media (min-width: 825px) and (max-width: 964px) {
+  .service-card {
+    width: calc(33.33% - 20px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+  }
+
+  .service-info h3,
+  .service-info p {
+    margin-bottom: 10px;
+  }
+
+  .service-info .btn {
+    align-self: flex-end;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -291,25 +305,102 @@ width: 127%;
     margin-left: 30px;
   }
 }
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 700px) and (max-width: 1300px) {
   .appointment-form {
-    padding: 35px 25px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fed3f4;
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+    margin-left: 200px;
+    margin-right: 200px;
   }
-
+  .appointment-form .form-group {
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .appointment-form label {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 4px;
+  }
   .appointment-form input,
   .appointment-form select,
   .appointment-form textarea {
-    font-size: 16px;
-    margin-bottom: 22px;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #999;
+    outline: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
   }
-
+  .appointment-form textarea {
+    height: 80px;
+    resize: none;
+  }
   .appointment-form button {
-    width: 180px;
-    font-size: 18px;
+    width: 160px;
+    background-color: #3D5F31;
+    color: white;
     padding: 10px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+  }
+  .appointment-form button:hover {
+    background-color: #A566B0;
+  }
+  .contact-form {
+    max-width: 90%;
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+  .contact-form .form-group {
+    margin-bottom: 12px;
+  }
+  .contact-form label {
+    font-size: 12px;
+    margin-bottom: 2px;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    padding: 6px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  .contact-form textarea {
+    height: 60px;
+  }
+  .contact-form button.submit-button {
+    width: 140px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+  .contact-form .form-group input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin-right: 4px;
+  }
+  .contact-form .form-group label {
+    font-size: 12px;
+    margin-left: 4px;
+  }
+  .contact-form .form-group label span {
+    font-size: 12px;
   }
 }
-/* Стили для подвала на планшетах */
+
 @media (min-width: 768px) and (max-width: 1024px) {
   footer {
     padding: 18px;
@@ -378,6 +469,58 @@ width: 127%;
 
   .logo1 img {
     width: 80px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experience-cards-container {
+    grid-gap: 30px;
+  }
+
+  .adv {
+    grid-gap: 30px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .experience-cards-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 30px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 60px;
+    padding: 0 40px;
+  }
+
+  .experience-card {
+    background-color: #fed3f4;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: auto;
+    position: relative;
+    cursor: pointer;
+    transition: height 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 83%;
+    min-height: 180px;
+  }
+
+  .experience-year {
+    font-size: 14px;
+    margin-bottom: 12px;
+  }
+
+  .experience-description {
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    margin-bottom: 0;
   }
 }
 

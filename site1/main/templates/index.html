@@ -134,7 +134,7 @@
 
   <section class="gallery-section3" style="background-image: url('{% static 'img/фон3.PNG' %}');">
     <div class="section-title">
-      <h2>Посмотрите, как проходят наши занятия</h2>
+      <h2 class="gallery-section-title"> Так проходят наши занятия</h2>
     </div>
     <div class="underline"></div>
     <div class="gallery3">
@@ -147,7 +147,7 @@
 
 <section class="testimonial-section" style="background-image: url('{% static 'img/фон2.PNG' %}');">
     <div class="section-title">
-      <h2>Отзывы</h2>
+      <h2 class="testimonial-section-title">Отзывы</h2>
       <hr class="underline">
     </div>
     <div class="testimonial-container">
@@ -189,7 +189,7 @@
 <div class="messages-container">
     <div class="messages">
         {% for message in messages %}
-        <div{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
+        <div {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</div>
         {% endfor %}
     </div>
 </div>

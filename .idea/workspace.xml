@@ -4,20 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d18d15d-6288-427c-9adb-11b382cae217" name="Changes" comment="добавление адаптива для телефона страниц услуги и обо мне">
+    <list default="true" id="7d18d15d-6288-427c-9adb-11b382cae217" name="Changes" comment="добавление адаптива для планшетов">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/site1/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/static/css/mobileindex.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/mobileindex.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/img/tg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/img/vk.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/static/img/wats.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/about.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/mobilestati.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/mobilestati.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/stati.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/stati.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/css/tabletindex.css" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/static/css/tabletindex.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/js/opisanie.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/js/stati.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/static/js/stati2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/site1/main/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/main/templates/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/layout.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/site1/main/templates/services.html" beforeDir="false" afterPath="$PROJECT_DIR$/site1/main/templates/services.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/site1/site1/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/site1/site1/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -237,7 +237,23 @@
       <option name="project" value="LOCAL" />
       <updated>1717179371030</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="добавление адаптива для планшетов">
+      <option name="closed" value="true" />
+      <created>1717520931366</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1717520931366</updated>
+    </task>
+    <task id="LOCAL-00018" summary="добавление адаптива для планшетов">
+      <option name="closed" value="true" />
+      <created>1717520975381</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1717520975381</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,7 +284,8 @@
     <MESSAGE value="обновленные стили css" />
     <MESSAGE value="добавление адаптива для телефона страниц главная и услуги" />
     <MESSAGE value="добавление адаптива для телефона страниц услуги и обо мне" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавление адаптива для телефона страниц услуги и обо мне" />
+    <MESSAGE value="добавление адаптива для планшетов" />
+    <option name="LAST_COMMIT_MESSAGE" value="добавление адаптива для планшетов" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
