@@ -70,7 +70,7 @@ class QuestionAdmin(admin.ModelAdmin):
 
     def send_response_email(self, request, obj):
         subject = "Ответ на ваш вопрос"
-        message = f"Спасибо за ваше обращение {obj.full_name}, мы ответили на ваш вопрос:\n\n{obj.message}\n\nОтвет:\n{obj.response}"
+        message = f"Спасибо за ваше обращение {obj.full_name}, я ответила на ваш вопрос:\n\n{obj.message}\n\nОтвет:\n{obj.response}"
         from_email = settings.DEFAULT_FROM_EMAIL
         to_email = obj.email
         send_mail(subject, message, from_email, [to_email], fail_silently=False)

@@ -2,6 +2,8 @@ body {
 font-family: Arial, sans-serif;
 margin: 0;
 padding: 0;
+    width: 100%;
+    overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6 {
 margin-top: 0;
@@ -56,7 +58,7 @@ font-size: 16px;
 
   .nav-menu.show {
     display: block;
-    right: 16%;
+    right: 14%;
   }
 
   .nav-menu ul {
@@ -293,26 +295,24 @@ margin-top: -20px;
     padding: 30px 0;
     background-size: cover;
   }
-  .testimonial-section {
-    background-size: 1200px 800px;
-    margin-top: -30px;
-  }
-  .testimonial-container {
-    max-width: 90%;
-  }
-  .testimonial-slide {
-    min-width: 300px;
-    padding: 10px;
-  }
-  .prev,
-  .next {
-    font-size: 18px;
-  }
-  .prev img,
-  .next img {
-    width: 18px;
-    height: 18px;
-  }
+    .testimonial-slide {
+        flex: 0 0 90%; /* Устанавливаем ширину слайда */
+        max-width: 90%;
+    }
+
+    .prev,
+    .next {
+        width: 25px;
+        height: 25px;
+    }
+
+    .prev {
+        left: 5px; /* Расстояние от текста */
+    }
+
+    .next {
+        right: 5px; /* Расстояние от текста */
+    }
   .gallery-section3 {
     padding: 30px 0;
   }
@@ -399,7 +399,7 @@ margin-top: -20px;
     margin-bottom: 8px;
   }
   .featured-articles {
-    padding: 30px 0;
+    padding: 40px 0;
     margin-top: -40px;
   }
   .title7 {
@@ -453,43 +453,7 @@ margin-top: -20px;
     height: 2px;
     margin-bottom: 20px;
   }
-  .contact-form {
-    max-width: 90%;
-    padding: 20px;
-  }
-  .contact-form .form-group {
-    margin-bottom: 12px;
-  }
-  .contact-form label {
-    font-size: 12px;
-    margin-bottom: 2px;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    padding: 6px;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  .contact-form textarea {
-    height: 60px;
-  }
-  .contact-form button.submit-button {
-    width: 140px;
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-  .contact-form .form-group input[type="checkbox"] {
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
-  }
-  .contact-form .form-group label {
-    font-size: 12px;
-    margin-left: 4px;
-  }
-  .contact-form .form-group label span {
-    font-size: 12px;
-  }
+
   .centered-section {
     padding: 86px 0;
     padding-left: 15px;
@@ -647,23 +611,32 @@ margin-top: -20px;
     background-size: 300%;
     background-position: center;
     padding: 40px 20px;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
   }
   .contacts-info {
     width: 100%;
-    font-size: 20px;
+    font-size: 18px; /* Уменьшаем размер шрифта */
     color: #000000;
     text-align: center;
     margin-bottom: 20px;
+    padding: 0 10px; /* Добавляем отступы для текста */
+    box-sizing: border-box; /* Включаем отступы в ширину элемента */
+    word-wrap: break-word; /* Переносим длинные слова */
   }
   .contacts-info h2 {
-    margin-top: 0;
-    font-size: 24px;
+    margin-top: 20px; /* Добавляем отступ сверху */
+    font-size: 22px; /* Уменьшаем размер шрифта */
+    padding: 0 10px; /* Добавляем отступы */
+    box-sizing: border-box; /* Включаем отступы в ширину элемента */
   }
   .contact-address,
   .contact-email,
   .contact-location {
     color: #000;
-    font-size: 18px;
+    font-size: 16px; /* Уменьшаем размер шрифта */
+    padding: 0 10px; /* Добавляем отступы */
+    box-sizing: border-box; /* Включаем отступы в ширину элемента */
+    word-wrap: break-word; /* Переносим длинные слова */
   }
   .map-container {
     width: 100%;
@@ -719,7 +692,7 @@ margin-top: -20px;
 @media (max-width: 767px) {
   .certificate-section {
     padding: 20px;
-    margin-top: -100px;
+
   }
   .title1 h2 {
     font-size: 20px;
@@ -1053,11 +1026,9 @@ margin-top: -20px;
   }
 
   .underline {
-    width: 50px;
+    width: 80px;
     height: 2px;
-    background-color: #333;
-    margin: 0 auto 20px;
-    order: 2;
+    margin-top: 3px;
   }
 
   .about-me-photo-container {
@@ -1131,9 +1102,9 @@ margin-top: -20px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 37px;
     justify-content: center;
-    width: 95%;
-    margin: 64px -11px;
+    width: 100%;
     margin-top: 10%;
+        margin-left: -10px;
   }
 }
 
@@ -1147,4 +1118,228 @@ margin-top: -20px;
   .service-card2 {
     margin-bottom: 20px;
   }
+}
+@media (min-width 375) and (max-width: 767px) {
+  .contact-form {
+    max-width: 100%;
+    margin: 0 100px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 12px;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-form label {
+    font-size: 12px;;
+    align-items: center;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 6px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .contact-form textarea {
+    height: 50px;
+  }
+
+  .contact-form button.submit-button {
+    width: 120px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .contact-form .form-group input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #3D5F31;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    margin-right: 6px;
+  }
+
+  .contact-form .form-group label {
+    font-size: 12px;
+  }
+}@media (min-width: 320px) and (max-width: 339px) {
+  .advantages p,
+  .services p,
+  .appointment-section p,
+  .contacts-section p,
+  .reviews p,
+  .about-me-section1 p,
+  .about-me-section2 p,
+  .certificate-section p,
+  .featured-articles p,
+  .centered-section p {
+    font-size: 14px;
+  }
+
+  .advantages h2,
+  .services h2,
+  .appointment-section h2,
+  .contacts-section h2,
+  .reviews h2,
+  .about-me-section1 h2,
+  .about-me-section2 h2,
+  .certificate-section h2,
+  .featured-articles h2,
+  .centered-section h2 {
+    font-size: 20px;
+  }
+.contact-form {
+    background-color: #fed3f4;
+    max-width: 312px;
+    margin: 0 auto;
+    padding: 26px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-left: 10px;
+    margin-right: 10px;
+     font-family: Arial, sans-serif;
+}
+  .welcome-section {
+    padding: 31px 10px;
+    grid-template-columns: 1fr;
+    height: auto;
+        margin-top: -60px;
+        margin-left: -9px;
+  }
+
+  .welcome-text {
+font-size: 16px;
+    margin-top: -100px;
+    max-width: 100%;
+    padding-right: 10px;
+    margin-left: 0;
+  }
+.button1 {
+    padding: 10px 16px;
+    font-size: 14px;
+    margin: 10px 0;
+    width: 100%;
+ left: 14px;
+    top: 10px;
+}
+  .welcome-text h1.section-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .welcome-text p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+ .button1 {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .image-container {
+    width: 100%;
+    margin-left: 0;
+    transform: none;
+    margin-top: 10px;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .featured-articles {
+    padding: 20px 0;
+  }
+
+  .title7 h2 {
+    font-size: 18px;
+  }
+
+  .article {
+    width: 60%;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    margin-left: 50px;
+  }
+
+  .article img {
+    width: 100%;
+    height: auto;
+  }
+
+  .caption h3 {
+    font-size: 14px;
+  }
+
+  .other-articles {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+
+  .advantages,
+  .services,
+  .appointment-section,
+  .contacts-section,
+  .reviews,
+  .about-me-section1,
+  .about-me-section2,
+  .certificate-section,
+  .featured-articles,
+  .centered-section {
+    padding: 57px 10px;
+  }
+
+  .centered-section h2,
+  .services-header {
+    font-size: 16px;
+  }
+
+  .gallery-section3 {
+    padding: 20px 10px;
+  }
+
+.gallery3 {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 10px;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 50%;
+}
+
+  .testimonial-section,
+  .appointment-form {
+    padding: 20px 10px;
+  }
+  .service-card {
+    background-color: #fff;
+    color: #333;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: calc(50% - -26px);
+    margin: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.services-header {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.nav-menu.show {
+    display: block;
+    right: 13%;}
 }

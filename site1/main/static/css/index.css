@@ -518,7 +518,7 @@ width: 90px;
 
   .certificatee-gallery .certificatee-item {
     margin: 10px;
-    border: 5px solid #000000;
+    border: 3px solid #000000;
     border-radius: 5px;
   }
 
@@ -557,58 +557,77 @@ width: 90px;
 }
 
 
-
 .testimonial-section {
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  padding: 50px 0;
-  margin-top: 100px;
+    background-size: cover;
+    margin-top: -30px;
+    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
 }
 
-
 .testimonial-container {
-   max-width: 842px;
-  margin: 0 auto;
-  position: relative;
+    max-width: 100%;
+    overflow: hidden; /* Скрываем горизонтальную прокрутку */
+    position: relative; /* Для абсолютного позиционирования кнопок */
+    padding: 20px 0; /* Отступы для текста и кнопок */
 }
 
 .testimonial-slider {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-
+    display: flex;
+    transition: transform 0.5s ease; /* Добавляем анимацию для переключения слайдов */
 }
 
 .testimonial-slide {
-  min-width: 500px;
-  padding: 20px;
-  text-align: center;
+    flex: 0 0 80%; /* Устанавливаем ширину слайда */
+    max-width: 80%;
+    padding: 10px;
+    margin: 0 auto;
+    font-size: 14px;
+    box-sizing: border-box; /* Учитываем отступы в ширине */
+    text-align: center; /* Центрируем текст */
+}
+
+.testimonial-slide p {
+    font-size: 14px; /* Уменьшаем размер шрифта для текста */
+    margin: 0 50px; /* Добавляем отступы, чтобы текст не перекрывался кнопками */
+    margin-bottom: 20px; /* Добавляем отступ снизу для разделения с автором */
+}
+
+.testimonial-slide span {
+    font-size: 16px; /* Увеличиваем размер шрифта для автора */
+    font-weight: normal; /* Делаем шрифт жирным для выделения */
+    display: block; /* Делаем элемент блочным, чтобы отступ применялся корректно */
 }
 
 .prev,
 .next {
-  position: absolute;
-  top: 50%;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 24px;
-  color: #fed3f4;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    z-index: 10;
+    background-color: #3D5F31; /* Зеленый цвет кнопок */
+    color: #fff;
+    width: 40px; /* Увеличиваем размер кнопок */
+    height: 40px; /* Увеличиваем размер кнопок */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: none; /* Удаляем тень */
 }
 
 .prev {
-  left: 10px;
+    left: 20px; /* Увеличиваем расстояние от левого края контейнера */
 }
 
 .next {
-  right: 10px;
+    right: 20px; /* Увеличиваем расстояние от правого края контейнера */
 }
 
 .prev img,
 .next img {
-  width: 24px;
-  height: 24px;
+    width: 18px;
+    height: 18px;
 }
  .section-background {
     background-size: 1500px;
@@ -622,7 +641,6 @@ width: 90px;
   background-image: url('{% static 'img/фон3.PNG' %}');
   background-size: cover;
   background-position: center;
-  text-align: center;
   padding: 60px 0;
   margin-top: -50px;
 }
@@ -648,7 +666,8 @@ width: 90px;
   margin: 0 auto;
   padding: 25px;
   border-radius: 10px;
-  font-family: Arial, sans-serif;
+        font-family: Arial, sans-serif;
+    font-size: 12px;
 }
 
 .contact-form .form-group {
@@ -702,31 +721,29 @@ width: 90px;
   background-color: #A566B0;
 }
 
-.contact-form .form-group input[type="checkbox"] {
+.form-group input[type="checkbox"] {
   width: 16px;
   height: 16px;
   border: 2px solid #3D5F31;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
-  margin-right: 6px;
   position: static;
   left: auto;
   margin-top: 0;
 }
 
-.contact-form .form-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.form-group input[type="checkbox"]:checked {
+  background-color: #3D5F31;
+  background-position: center;
 }
 
-contact-form .form-group label {
-  font-size: 14px;
+.form-group label {
+  font-size: 13px;
   color: #999;
-  display: inline-flex;
-  align-items: center;
-  margin-left: 0;
+  display: inline;
+  margin-left: 10px;
+  margin-top:
 }
 
 .contact-form .form-group label a {
@@ -1157,7 +1174,7 @@ contact-form .form-group label {
 .certificate-gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 40px;
 }
 
 .certificate-item {
@@ -1687,4 +1704,31 @@ content:""!important;
 .back-button i {
   margin-right: 4px;
   font-size: 14px;
+}
+.my-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Прозрачный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Перекрывает остальной контент */
+}
+
+.my-modal img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+
+.my-modal .close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  font-size: 24px;
 }

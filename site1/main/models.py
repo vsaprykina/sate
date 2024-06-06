@@ -14,11 +14,11 @@ class Appointment(models.Model):
     appointment_date = models.DateField()
     appointment_time = models.TimeField()
     service = models.CharField(max_length=100)
-    status = models.CharField(max_length=20, default='Pending')
-    approved = models.BooleanField(default=False)  # New field
+    approved = models.BooleanField(default=False)
+    status = models.CharField(max_length=20, choices=[('Pending', 'Pending'), ('Approved', 'Approved'), ('Rejected', 'Rejected')], default='Pending')
 
     def __str__(self):
-        return f"{self.full_name} - {self.service}"
+        return f"{self.full_name} - {self.appointment_date} {self.appointment_time}"
 
 
 

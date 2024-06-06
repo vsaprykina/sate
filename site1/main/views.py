@@ -31,7 +31,7 @@ def index(request):
                 email=email,
                 message=message
             )
-            messages.success(request, 'Спасибо за обращение! Мы скоро вам ответим.')
+            messages.success(request, 'Спасибо за обращение! Я скоро вам отвечу.')
             return redirect('index#contact-form')
 
     featured_articles = Article.objects.filter(is_featured=True)[:4]
@@ -66,12 +66,28 @@ def index_question_view(request):
             for field, error in errors.items():
                 messages.error(request, error)
         else:
-            Question.objects.create(
+            question = Question.objects.create(
                 full_name=full_name,
                 email=email,
                 message=message
             )
-            messages.success(request, 'Спасибо за обращение! Мы скоро вам ответим.')
+            messages.success(request, 'Спасибо за обращение! Ответ придет на указнную электронную почту.')
+
+            # Отправка email уведомления
+            subject = "Ваш вопрос успешно отправлен"
+            email_message = f"""
+            Здравствуйте {full_name},
+
+            Ваш вопрос:
+            "{message}"
+
+            Спасибо за ваше обращение! Я отвечу вам в ближайшее время.
+
+            С уважением,
+            ваш логопед, Елена
+            """
+            send_mail(subject, email_message, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=False)
+
             return redirect('index')
 
     return render(request, 'index.html')
@@ -146,6 +162,7 @@ def appointment_available_times(request, appointment_date):
         available_times.remove(appointment.appointment_time.strftime('%H:%M'))
     return JsonResponse(available_times, safe=False)
 
+
 def appointment_submit(request):
     if request.method == 'POST':
         full_name = request.POST.get('fullName')
@@ -154,8 +171,8 @@ def appointment_submit(request):
         appointment_time = request.POST.get('appointmentTime')
         service = request.POST.get('service')
 
-        # Check if the selected time is available
-        approved_appointments = Appointment.objects.filter(appointment_date=appointment_date, appointment_time=appointment_time, approved=True)
+        approved_appointments = Appointment.objects.filter(appointment_date=appointment_date,
+                                                           appointment_time=appointment_time, approved=True)
         if approved_appointments.exists():
             messages.error(request, 'Извините, это время уже занято. Пожалуйста, выберите другое время.')
             return redirect('services')
@@ -166,10 +183,23 @@ def appointment_submit(request):
             appointment_date=appointment_date,
             appointment_time=appointment_time,
             service=service,
-            approved=True
+            approved=False
         )
         appointment.save()
-        messages.success(request, 'Ваша заявка успешно отправлена. Мы свяжемся с вами в ближайшее время.')
+
+        # Отправка уведомления пользователю
+        subject = "Ваша заявка успешно отправлена"
+        message = f"""
+        Здравствуйте {full_name},
+
+        Ваша заявка на прием по услуге "{service}" на {appointment_date} в {appointment_time} успешно отправлена. Я свяжусь с вами в ближайшее время для подтверждения.
+        """
+        send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=False)
+
+        messages.success(request,
+                         'Ваша заявка успешно отправлена. Я свяжусь с вами в ближайшее время (ждите ответ на указанную электронную почту).')
+        return redirect('services')
+
     return redirect('services')
 
 

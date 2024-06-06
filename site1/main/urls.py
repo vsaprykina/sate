@@ -19,6 +19,6 @@ urlpatterns = [
     path('article/<int:pk>/', views.article_detail, name='article_detail'),
     path('privacy-policy/', views.privacy_policy_view, name='privacy_policy'),
     path('index-question/', views.index_question_view, name='index_question'),
-    path('success/', views.success, name='success'),
+    path('success/', views.success, name='success')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
   + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
