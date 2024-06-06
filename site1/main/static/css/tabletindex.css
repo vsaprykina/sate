@@ -70,7 +70,7 @@
     align-items: center;
     justify-content: center;
     height: auto;
-    min-height: 120vh;
+    min-height: 170vh;
     background-image: url('{% static "img/фон.png" %}');
     background-size: cover;
     background-position: center;
@@ -115,7 +115,7 @@
     justify-content: center;
     align-items: center;
     margin-left: 8px;
-     margin-top: -451px;
+     margin-top: -200px;
   }
 
   .image-container img {
@@ -127,36 +127,6 @@
     margin: 0 auto;
     position: relative;
 }
-.contact-form {
-    max-width: 100%;
-    margin: 0 20px;
-    padding: 25px;
-  }
-
-  .contact-form .form-group {
-    margin-bottom: 12px;
-  }
-
-  .contact-form label {
-    font-size: 13px;
-  }
-
-  .contact-form input,
-  .contact-form textarea {
-    padding: 7px;
-    font-size: 13px;
-    margin-bottom: 10px;
-  }
-
-  .contact-form textarea {
-    height: 60px;
-  }
-
-  .contact-form button.submit-button {
-    width: 140px;
-    padding: 7px 14px;
-    font-size: 13px;
-  }
 }
 @media (min-width: 1024px) {
 .welcome-section {
@@ -360,45 +330,6 @@ width: 127%;
   .appointment-form button:hover {
     background-color: #A566B0;
   }
-  .contact-form {
-    max-width: 90%;
-    padding: 20px;
-    margin-left: 100px;
-    margin-right: 100px;
-  }
-  .contact-form .form-group {
-    margin-bottom: 12px;
-  }
-  .contact-form label {
-    font-size: 12px;
-    margin-bottom: 2px;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    padding: 6px;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  .contact-form textarea {
-    height: 60px;
-  }
-  .contact-form button.submit-button {
-    width: 140px;
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-  .contact-form .form-group input[type="checkbox"] {
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
-  }
-  .contact-form .form-group label {
-    font-size: 12px;
-    margin-left: 4px;
-  }
-  .contact-form .form-group label span {
-    font-size: 12px;
-  }
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -478,7 +409,7 @@ width: 127%;
   }
 
   .adv {
-    grid-gap: 30px;
+    grid-gap: 37px;
   }
 }
 
@@ -524,3 +455,105 @@ width: 127%;
   }
 }
 
+@media (max-width: 767px) {
+  .contact-form {
+    max-width: 100%;
+    margin: 0 15px;
+    padding: 20px;
+  }
+}
+
+LLM served by Perplexity Labs
+Вот полный код с медиа-запросами для планшетов:
+css
+/* Стили для экранов меньше 768px */
+@media (max-width: 767px) {
+  .contact-form {
+    max-width: 100%;
+    margin: 0 15px;
+    padding: 20px;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .contact-form label {
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 6px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .contact-form textarea {
+    height: 50px;
+  }
+
+  .contact-form button.submit-button {
+    width: 120px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .contact-form .form-group input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    margin-right: 6px;
+  }
+
+  .contact-form .form-group label {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+/* Стили для планшетов с шириной экрана от 768px до 1023px */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .contact-form {
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 25px;
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .contact-form label {
+    font-size: 13px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 7px;
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .contact-form textarea {
+    height: 60px;
+  }
+
+  .contact-form button.submit-button {
+    width: 140px;
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .contact-form .form-group label {
+    font-size: 13px;
+  }
+}

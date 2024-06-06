@@ -453,43 +453,7 @@ margin-top: -20px;
     height: 2px;
     margin-bottom: 20px;
   }
-  .contact-form {
-    max-width: 90%;
-    padding: 20px;
-  }
-  .contact-form .form-group {
-    margin-bottom: 12px;
-  }
-  .contact-form label {
-    font-size: 12px;
-    margin-bottom: 2px;
-  }
-  .contact-form input,
-  .contact-form textarea {
-    padding: 6px;
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  .contact-form textarea {
-    height: 60px;
-  }
-  .contact-form button.submit-button {
-    width: 140px;
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-  .contact-form .form-group input[type="checkbox"] {
-    width: 14px;
-    height: 14px;
-    margin-right: 4px;
-  }
-  .contact-form .form-group label {
-    font-size: 12px;
-    margin-left: 4px;
-  }
-  .contact-form .form-group label span {
-    font-size: 12px;
-  }
+
   .centered-section {
     padding: 86px 0;
     padding-left: 15px;
@@ -654,6 +618,7 @@ margin-top: -20px;
     color: #000000;
     text-align: center;
     margin-bottom: 20px;
+    padding: 0 10px; /* Добавьте отступы для текста */
   }
   .contacts-info h2 {
     margin-top: 0;
@@ -719,7 +684,7 @@ margin-top: -20px;
 @media (max-width: 767px) {
   .certificate-section {
     padding: 20px;
-    margin-top: -100px;
+
   }
   .title1 h2 {
     font-size: 20px;
@@ -1131,9 +1096,9 @@ margin-top: -20px;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 37px;
     justify-content: center;
-    width: 95%;
-    margin: 64px -11px;
+    width: 100%;
     margin-top: 10%;
+        margin-left: -10px;
   }
 }
 
@@ -1146,5 +1111,54 @@ margin-top: -20px;
 
   .service-card2 {
     margin-bottom: 20px;
+  }
+}
+@media (min-width 375) and (max-width: 767px) {
+  .contact-form {
+    max-width: 100%;
+    margin: 0 100px;
+    padding: 20px;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+
+  .contact-form label {
+    font-size: 12px;;
+    align-items: center;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 6px;
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .contact-form textarea {
+    height: 50px;
+  }
+
+  .contact-form button.submit-button {
+    width: 120px;
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .contact-form .form-group input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+    border: 2px solid #3D5F31;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    margin-right: 6px;
+  }
+
+  .contact-form .form-group label {
+    font-size: 12px;
   }
 }

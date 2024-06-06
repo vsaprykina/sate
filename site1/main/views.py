@@ -154,7 +154,7 @@ def appointment_submit(request):
         appointment_time = request.POST.get('appointmentTime')
         service = request.POST.get('service')
 
-        # Check if the selected time is available
+
         approved_appointments = Appointment.objects.filter(appointment_date=appointment_date, appointment_time=appointment_time, approved=True)
         if approved_appointments.exists():
             messages.error(request, 'Извините, это время уже занято. Пожалуйста, выберите другое время.')
