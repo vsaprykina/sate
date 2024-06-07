@@ -14,16 +14,17 @@ $(document).ready(function() {
   });
 
   // При нажатии на кнопку закрытия модального окна
-  $(document).on("click", ".close-button", function(event) {
-    // Останавливаем распространение события, чтобы предотвратить срабатывание события "click" на модальном окне
-    event.stopPropagation();
-    // Удаляем модальное окно при клике
+  $(document).on("click", ".close-button", function() {
+    // Удаляем модальное окно
     $(this).closest(".my-modal").remove();
   });
 
-  // При нажатии на модальное окно
-  $(document).on("click", ".my-modal", function() {
-    // Удаляем модальное окно при клике
-    $(this).remove();
+  // При нажатии на фон модального окна
+  $(document).on("click", ".my-modal", function(event) {
+    // Проверяем, был ли клик на самом фоне модального окна, а не на изображении или кнопке закрытия
+    if ($(event.target).hasClass("my-modal")) {
+      // Удаляем модальное окно
+      $(this).remove();
+    }
   });
 });

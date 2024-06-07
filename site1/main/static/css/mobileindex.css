@@ -2,13 +2,13 @@ body {
 font-family: Arial, sans-serif;
 margin: 0;
 padding: 0;
-    width: 100%;
-    overflow-x: hidden;
+width: 100%;
+overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, h6 {
 margin-top: 0;
 text-align: center;
-font-size: 24px;
+font-size: 16px;
 }
 p, ul, ol {
 margin-top: 0;
@@ -455,7 +455,7 @@ margin-top: -20px;
   }
 
   .centered-section {
-    padding: 86px 0;
+    padding: 76px 0;
     padding-left: 15px;
     padding-right: 15px;
   }
@@ -611,17 +611,18 @@ margin-top: -20px;
     background-size: 300%;
     background-position: center;
     padding: 40px 20px;
-    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+    overflow-x: hidden;
   }
   .contacts-info {
     width: 100%;
-    font-size: 18px; /* Уменьшаем размер шрифта */
+    font-size: 18px;
     color: #000000;
     text-align: center;
     margin-bottom: 20px;
-    padding: 0 10px; /* Добавляем отступы для текста */
-    box-sizing: border-box; /* Включаем отступы в ширину элемента */
-    word-wrap: break-word; /* Переносим длинные слова */
+    padding: 0 10px;
+    box-sizing: border-box;
+    word-wrap: break-word;
+    padding: 0 10px;
   }
   .contacts-info h2 {
     margin-top: 20px; /* Добавляем отступ сверху */
@@ -633,8 +634,7 @@ margin-top: -20px;
   .contact-email,
   .contact-location {
     color: #000;
-    font-size: 16px; /* Уменьшаем размер шрифта */
-    padding: 0 10px; /* Добавляем отступы */
+    font-size: 15px; /* Уменьшаем размер шрифта */
     box-sizing: border-box; /* Включаем отступы в ширину элемента */
     word-wrap: break-word; /* Переносим длинные слова */
   }
@@ -659,6 +659,11 @@ margin-top: -20px;
   .title1 h2 {
     font-size: 20px;
   }
+  .certificate-section .title1 h2 {
+  font-size: 20px;
+  font-weight: normal;
+  padding-top: 20px;
+}
   .title1 .highlight-line,
   .highlight-line1 {
     width: 80px;
@@ -1169,7 +1174,8 @@ margin-top: -20px;
   .contact-form .form-group label {
     font-size: 12px;
   }
-}@media (min-width: 320px) and (max-width: 339px) {
+}
+@media (min-width: 320px) and (max-width: 339px) {
   .advantages p,
   .services p,
   .appointment-section p,
@@ -1342,4 +1348,18 @@ font-size: 16px;
 .nav-menu.show {
     display: block;
     right: 13%;}
+}
+
+@media screen and (max-width: 768px) {
+  .modal-image {
+    max-width: 90%;
+    max-height: 90%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+  }
 }

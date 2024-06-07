@@ -171,12 +171,17 @@ def appointment_submit(request):
         appointment_time = request.POST.get('appointmentTime')
         service = request.POST.get('service')
 
-        approved_appointments = Appointment.objects.filter(appointment_date=appointment_date,
-                                                           appointment_time=appointment_time, approved=True)
+        # Проверка, занято ли указанное время
+        approved_appointments = Appointment.objects.filter(
+            appointment_date=appointment_date,
+            appointment_time=appointment_time,
+            approved=True
+        )
         if approved_appointments.exists():
             messages.error(request, 'Извините, это время уже занято. Пожалуйста, выберите другое время.')
             return redirect('services')
 
+        # Создание новой заявки на прием
         appointment = Appointment(
             full_name=full_name,
             email=email,
@@ -196,13 +201,10 @@ def appointment_submit(request):
         """
         send_mail(subject, message, settings.DEFAULT_FROM_EMAIL, [email], fail_silently=False)
 
-        messages.success(request,
-                         'Ваша заявка успешно отправлена. Я свяжусь с вами в ближайшее время (ждите ответ на указанную электронную почту).')
+        messages.success(request, 'Ваша заявка успешно отправлена. Я свяжусь с вами в ближайшее время (ждите ответ на указанную электронную почту).')
         return redirect('services')
 
     return redirect('services')
-
-
 
 def home_page(request):
     featured_articles = Article.objects.filter(is_featured=True)[:4]

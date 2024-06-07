@@ -468,66 +468,41 @@ width: 90px;
     transition: transform 0.3s ease;
   }
 
-.services-section2 {
-  padding: 50px 0;
-  text-align: center;
-  color: #000000;
-}
-
-.services-container2 {
-  max-width: 800px;
-  margin: 0 auto;
-  padding-bottom: 40px;
-}
-
-.services-grid2 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.service-card2 {
-  background-color: #ffffff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease;
-}
-
-.service-card2:hover {
-  transform: translateY(-5px);
-}
-
-.service-card2 h3 {
-  font-size: 18px;
-  margin: 0;
-}
-
-  .certificatee-section {
+.certificatee-section {
     text-align: center;
     background-size: cover;
     background-position: center;
     padding: 50px 0;
-  }
+}
 
-  .certificatee-gallery {
+.section-title h2 {
+    margin-bottom: 20px;
+}
+
+.certificatee-gallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-  }
+}
 
-  .certificatee-gallery .certificatee-item {
+.certificatee-item {
     margin: 10px;
     border: 3px solid #000000;
     border-radius: 5px;
-  }
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
 
-  .certificatee-item img {
+.certificatee-item:hover {
+    transform: scale(1.1);
+}
+
+.certificatee-item img {
     width: 200px;
     height: auto;
     border-radius: 5px;
     cursor: pointer;
-  }
+}
 
 .gallery-section3 {
   text-align: center;
@@ -560,41 +535,41 @@ width: 90px;
 .testimonial-section {
     background-size: cover;
     margin-top: -30px;
-    overflow-x: hidden; /* Скрываем горизонтальную прокрутку */
+    overflow-x: hidden;
 }
 
 .testimonial-container {
     max-width: 100%;
-    overflow: hidden; /* Скрываем горизонтальную прокрутку */
-    position: relative; /* Для абсолютного позиционирования кнопок */
-    padding: 20px 0; /* Отступы для текста и кнопок */
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
 }
 
 .testimonial-slider {
     display: flex;
-    transition: transform 0.5s ease; /* Добавляем анимацию для переключения слайдов */
+    transition: transform 0.5s ease;
 }
 
 .testimonial-slide {
-    flex: 0 0 80%; /* Устанавливаем ширину слайда */
+    flex: 0 0 80%;
     max-width: 80%;
     padding: 10px;
     margin: 0 auto;
     font-size: 14px;
-    box-sizing: border-box; /* Учитываем отступы в ширине */
-    text-align: center; /* Центрируем текст */
+    box-sizing: border-box;
+    text-align: center;
 }
 
 .testimonial-slide p {
-    font-size: 14px; /* Уменьшаем размер шрифта для текста */
-    margin: 0 50px; /* Добавляем отступы, чтобы текст не перекрывался кнопками */
-    margin-bottom: 20px; /* Добавляем отступ снизу для разделения с автором */
+    font-size: 14px;
+    margin: 0 50px;
+    margin-bottom: 20px;
 }
 
 .testimonial-slide span {
-    font-size: 16px; /* Увеличиваем размер шрифта для автора */
-    font-weight: normal; /* Делаем шрифт жирным для выделения */
-    display: block; /* Делаем элемент блочным, чтобы отступ применялся корректно */
+    font-size: 16px;
+    font-weight: normal;
+    display: block;
 }
 
 .prev,
@@ -604,10 +579,10 @@ width: 90px;
     transform: translateY(-50%);
     font-size: 18px;
     z-index: 10;
-    background-color: #3D5F31; /* Зеленый цвет кнопок */
+    background-color: #3D5F31;
     color: #fff;
-    width: 40px; /* Увеличиваем размер кнопок */
-    height: 40px; /* Увеличиваем размер кнопок */
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -617,11 +592,11 @@ width: 90px;
 }
 
 .prev {
-    left: 20px; /* Увеличиваем расстояние от левого края контейнера */
+    left: 20px;
 }
 
 .next {
-    right: 20px; /* Увеличиваем расстояние от правого края контейнера */
+    right: 20px;
 }
 
 .prev img,
@@ -666,8 +641,8 @@ width: 90px;
   margin: 0 auto;
   padding: 25px;
   border-radius: 10px;
-        font-family: Arial, sans-serif;
-    font-size: 12px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
 }
 
 .contact-form .form-group {
@@ -685,7 +660,8 @@ width: 90px;
   margin-bottom: 3px;
 }
 
-.contact-form input,
+.contact-form input[type="text"],
+.contact-form input[type="email"],
 .contact-form textarea {
   width: 100%;
   padding: 8px;
@@ -697,7 +673,6 @@ width: 90px;
   color: #333;
   outline: none;
 }
-
 .contact-form textarea {
   height: 70px;
   resize: none;
@@ -1718,17 +1693,25 @@ content:""!important;
   z-index: 9999; /* Перекрывает остальной контент */
 }
 
-.my-modal img {
+.modal-image {
   max-width: 90%;
   max-height: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out; /* Анимация увеличения */
 }
 
-
-.my-modal .close-button {
+.close-button {
   position: absolute;
   top: 10px;
   right: 10px;
-  cursor: pointer;
-  color: white;
+  color: #fff;
   font-size: 24px;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ccc;
 }
