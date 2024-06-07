@@ -1,69 +1,89 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
     background-image: url('/static/img/фон3.png');
-    background-color: rgba(240, 240, 240, 0.8);
     background-size: cover;
     background-position: center;
 }
 
-.article {
-    max-width: 800px;
+.article-detail {
+    max-width: 900px;
     margin: 50px auto;
-    padding: 30px;
-    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
     color: #333;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     text-align: center;
 }
 
-p {
+.article-content {
     font-size: 20px;
-    line-height: 1.6;
-    color: #444;
+    line-height: 1.8;
+    color: #555;
     text-align: justify;
-    margin-bottom: 15px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 30px;
 }
 
-img {
+.article-detail img {
     display: block;
     width: 50%;
     max-width: 100%;
     margin: 30px auto;
-    border: 15px solid #3D5F3;
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
+    border-radius: 8px;
+    border: 1px solid #eaeaea;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавление тени */
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.back-button {
+    display: inline-block;
+    background-color: #3D5F31;
+    color: white;
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #669966; /* Цвет хедера, замените на ваш точный цвет */
 }
 
 @media (max-width: 768px) {
-    .article {
+    .article-detail {
         padding: 20px;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 22px;
     }
 
-    p {
-        font-size: 18px;
+    .article-content {
+        font-size: 16px;
     }
 
-    img {
-        width: 100%;
+    .article-detail img {
+        width: 70%;
+    }
+
+    .back-button {
+        font-size: 16px;
+        padding: 15px 30px;
     }
 }
-
-

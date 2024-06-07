@@ -9,5 +9,8 @@
     <div class="article-content">
       {{ article.content|linebreaks }}
     </div>
+    <div class="button-container">
+      <a href="{% url 'index' %}" class="back-button">Назад</a>
+    </div>
   </div>
 {% endblock %}

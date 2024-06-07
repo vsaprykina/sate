@@ -64,6 +64,7 @@
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .welcome-section {
+    margin-top: -145px;
     padding: 60px 20px;
     display: flex;
     flex-direction: column-reverse;

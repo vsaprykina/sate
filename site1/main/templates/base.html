@@ -7,53 +7,6 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/stati.css' %}">
   <link rel="stylesheet" href="{% static 'css/mobilestati.css' %}">
-  <style>
-    .back-button {
-      top: 15px;
-      left: 15px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #fed3f4;
-      color: #000;
-      text-decoration: none;
-      padding: 8px 12px;
-      border: none;
-      border-radius: 18px;
-      font-size: 12px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .back-button:hover {
-      background-color: #A566B0;
-    }
-
-    .back-button i {
-      margin-right: 4px;
-      font-size: 14px;
-    }
-
-    @media (max-width: 767px) {
-      .back-button {
-        top: 10px;
-        left: 10px;
-        padding: 6px 10px;
-        font-size: 10px;
-      }
-
-      .back-button i {
-        margin-right: 3px;
-        font-size: 12px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <a href="{% url 'index' %}" class="back-button">
-    <i class="fas fa-arrow-left"></i> Вернуться
-  </a>
-
   {% block content %}
   {% endblock %}
 
