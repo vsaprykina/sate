@@ -31,6 +31,8 @@ h1 {
     color: #555;
     text-align: justify;
     margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .article-detail img {
@@ -40,7 +42,7 @@ h1 {
     margin: 30px auto;
     border-radius: 8px;
     border: 1px solid #eaeaea;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Добавление тени */
+    box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.2);
 }
 
 .button-container {
