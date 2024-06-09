@@ -1,6 +1,14 @@
 {% extends 'layout.html' %}
 {% load static %}
 
+{% block head %}
+    <meta property="og:title" content="Контакты">
+    <meta property="og:description" content="Контактная информация и отзывы о логопеде Елене Николаевне Шаповаловой">
+    <meta property="og:image" content="{% static 'img/фон.PNG' %}">
+    <meta property="og:url" content="https://logopedelena.ru/contacts">
+    <meta property="og:type" content="article">
+{% endblock %}
+
 {% block title %}Контакты{% endblock %}
 
 {% block styles %}

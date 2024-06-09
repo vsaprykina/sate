@@ -1,6 +1,14 @@
 {% extends 'layout.html' %}
 {% load static %}
 
+{% block head %}
+    <meta property="og:title" content="Обо мне">
+    <meta property="og:description" content="Я Елена Николаевна Шаповалова в первую очередь многодетная мама.">
+    <meta property="og:image" content="{% static 'img/фотоновое.png' %}">
+    <meta property="og:url" content="https://logopedelena.ru/about">
+    <meta property="og:type" content="article">
+{% endblock %}
+
 {% block title %}Обо мне{% endblock %}
 
 {% block styles %}

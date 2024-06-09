@@ -1,12 +1,19 @@
 {% extends 'layout.html' %}
 {% load static %}
 
+{% block head %}
+    <meta property="og:title" content="Услуги">
+    <meta property="og:description" content="Услуги логопеда Елены Николаевны Шаповаловой">
+    <meta property="og:image" content="{% static 'img/фон3.PNG' %}">
+    <meta property="og:url" content="https://logopedelena.ru/services">
+    <meta property="og:type" content="article">
+{% endblock %}
+
 {% block title %}Услуги{% endblock %}
 
 {% block styles %}
 
 {% endblock %}
-
 {% block content %}
     <section id="ysligu" class="services" style="background-image: url('{% static 'img/фон3.PNG' %}');">
         <div class="services-header">
